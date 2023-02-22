@@ -1,0 +1,24 @@
+.buttons {
+    color: white;
+    background: cornflowerblue;
+    padding: 10px 40px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.wrapper_header{
+    background: cornflowerblue;
+}
+.wrapper_header .navbar-expand-lg .navbar-collapse {
+    display: block!important;
+}
+.wrapper_header .navbar-nav {
+    width: 90%;
+    float: right;
+    text-align: right;
+    display: block;
+}
+.wrapper_header a.nav-link {
+    display: inline;
+}
