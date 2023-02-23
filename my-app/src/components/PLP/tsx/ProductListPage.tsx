@@ -1,19 +1,21 @@
-import React,{ useEffect } from 'react'
+import React,{ useEffect, useState } from 'react'
 import ProductTiles from './ProductTilesPlp'
 import SideBar from './SideBarPlp'
 import Discount from './DiscountPlp'
-
+import Banner from './Banner_PLP'
 
 function ProductListPage() {
 
-    let API: string = "https://1e18-2401-4900-1c18-7e2a-1d35-f1dc-7d75-32d4.in.ngrok.io/api/allProducts";
+    const [productData, setProductData] = useState([]);
+
+    let API: string = "http://192.168.1.210:4000/api/allProducts";
 
 
     const fetchApiData = async (API: string) => {
         try{
             const res = await fetch(API);
             const data = await res.json();
-            console.log(data);
+            setProductData(data);
         }
         catch(error){
             console.log(error);
@@ -23,14 +25,16 @@ function ProductListPage() {
         fetchApiData(API);
     },[]);
     return (
-    
       <div className="container">
         <div className="row">
-          <div className="col-sm-4"><SideBar /></div>
-          <div className="col-sm-8">  <ProductTiles /></div>
+          <div className="col-sm-4"><Discount/><SideBar /></div>
+          <div className="col-sm-8"><Banner/></div>
+        </div>
+        <div className="row">
+        <ProductTiles productData={productData}/>
         </div>
       </div>
-    );
+    )
 }
 
 export default ProductListPage
