@@ -5,7 +5,7 @@ function ProductTiles() {
     return (
       <div className="card-group">
       <div className="card">
-        <img className="card-img-top" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" alt="Card image cap"/>
+      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top" alt="..."/>
         <div className="card-body">
           <h5 className="card-title">Card title</h5>
           <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -13,7 +13,7 @@ function ProductTiles() {
         </div>
       </div>
       <div className="card">
-        <img className="card-img-top" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" alt="Card image cap"/>
+      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top" alt="..."/>
         <div className="card-body">
           <h5 className="card-title">Card title</h5>
           <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -21,7 +21,7 @@ function ProductTiles() {
         </div>
       </div>
       <div className="card">
-        <img className="card-img-top" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" />
+      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top" alt="..."/>
         <div className="card-body">
           <h5 className="card-title">Card title</h5>
           <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
