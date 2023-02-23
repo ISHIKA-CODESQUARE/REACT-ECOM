@@ -1,11 +1,13 @@
 .banner {
-    width: 850px;
+    width: 800px;
     height: 500px;
-   margin-left: 360px;
+   /* margin-left: 360px; */
    position: relative; 
-   margin-top:50px;
+   /* margin-top:50px; */
 }
 /* img{
     width: 1050px;
     height: 470px;
 } */
+
+

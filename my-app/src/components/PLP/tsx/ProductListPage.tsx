@@ -1,7 +1,8 @@
 import React,{ useEffect } from 'react'
-import ProductTiles from './ProductTilesPlp'
-import SideBar from './SideBarPlp'
-import Discount from './DiscountPlp'
+import ProductTiles from '../tsx/ProductTilesPlp'
+import SideBar from '../tsx/SideBarPlp'
+// import Discount from '../tsx/DiscountPlp'
+import Banner from './Banner_PLP';
 
 
 function ProductListPage() {
@@ -27,6 +28,7 @@ function ProductListPage() {
       <div className="container">
         <div className="row">
           <div className="col-sm-4"><SideBar /></div>
+          <div className="col-sm-4"><Banner /></div>
           <div className="col-sm-8">  <ProductTiles /></div>
         </div>
       </div>
