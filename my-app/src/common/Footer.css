@@ -1,0 +1,11 @@
+.subscribe{
+    height: 60px;
+}
+
+a {
+color: #dee2e6;
+text-decoration: none;
+}
+a:hover{
+    color: #adb5bd;
+}
