@@ -1,15 +1,15 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import SignUp from "./Components/SignUp";
-import Login from "./Components/Login";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
 import PrivateRoute from "./Auth/PrivateRoute";
-import Home from "./Components/Home";
-import Header from "./Components/Header";
-import ProductListPage from './Components/PLP/tsx/ProductListPage';
-import ProductDetailPage from "./Components/ProductDetailPage";
-import Cart from "./Components/Cart";
-import Checkout from "./Components/Checkout";
+import Home from "./components/Home";
+import Header from "./components/Header";
+import ProductListPage from './components/PLP/tsx/ProductListPage';
+import ProductDetailPage from "./components/ProductDetailPage";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 import "./App.css";
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
 function App() {
