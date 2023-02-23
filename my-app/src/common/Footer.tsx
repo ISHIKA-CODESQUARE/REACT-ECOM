@@ -7,8 +7,20 @@ import './Footer.css';
 function Footer() {
     return (
 <div className='border border-dark bg-dark'>
-        <Stack gap={3}>
+        <Stack gap={5}>
+            <div>
             <h3  className="text-center text-light mt-5">Want Style Ideas and Treats?</h3>
+            <div className='row text-light mt-4 subscribe'>
+            <div className='col-3'></div>
+            <div className='col-4 align-right'>
+                <input type="text" className='w-100 h-75 bg-light text-light text-center'placeholder='Enter Email*'></input>
+            </div>
+            <div className='col-2'>
+                <Button variant="secondary" className='h-75 w-75'>Subscribe</Button>
+            </div>
+            <div className='col-3'></div>
+        </div>
+            </div>
             <Container>
                 <Row className='text-light'>
           <Col lg={3} md={6} className="mb-4 mb-lg-0">
