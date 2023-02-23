@@ -1,5 +1,5 @@
 import React from 'react'
-import CartProduct from './CartProduct'
+import CartProducts from './CartProduct'
 
 import "../css/cart.css";
 const Cart = () => {
@@ -10,7 +10,7 @@ const Cart = () => {
       <h2 className='font-weight-bold pb-4 pt-4'>Shopping Cart</h2>
 
       {/* Cart Products */}
-      <CartProduct />
+      <CartProducts />
 
       {/* Coupon code */}
 
@@ -18,7 +18,7 @@ const Cart = () => {
         <p >Coupon Code : </p>
         <div className="row">
           <div className="col-4">
-            <input class="form-control" type="text" placeholder="Enter CouponCode " />
+            <input className="form-control" type="text" placeholder="Enter CouponCode " />
           </div>
           <div className="col-4">
             <button className='btn btn-secondary'> Apply </button>
