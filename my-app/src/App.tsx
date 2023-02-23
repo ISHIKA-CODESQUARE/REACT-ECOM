@@ -7,6 +7,7 @@ import Cart from "./components/Cart"
 import Payment from "./components/Payment"
 import Checkout from "./components/Checkout"
 import './App.css';
+import "tailwindcss/tailwind.css";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
        <Routes>
         <Route path="Home" element={ <Home/> } />
         <Route path="ProductListPage" element={ <ProductListPage/> } />
-        <Route path="ProductDetailPage" element={ <ProductDetailPage/> } />
+        <Route path="ProductDetailPage/:id" element={ <ProductDetailPage/> } />
         <Route path="Checkout" element={ <Checkout/> } />
         <Route path="Cart" element={ <Cart/> } />
         <Route path="Payment" element={ <Payment/> } />
