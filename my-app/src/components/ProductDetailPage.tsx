@@ -1,4 +1,6 @@
+
 import React,{ useEffect, useState } from 'react'
+import { useLocation, useParams } from "react-router-dom";
 import { productDetailData } from "./ProductDetailData";
 import axios from 'axios';
  console.log(productDetailData);
@@ -8,18 +10,44 @@ function ProductDetailPage() {
 
     // let API: string = "http://192.168.1.210:4000/api/product/63f5a84fa54163c00ae535e1";
 
-    const [product, setProduct] = useState()
-    // console.log(product:any.Name);
+    interface RouteParams {
+      productid: string;
+    }
+
+
+    const params = useParams<RouteParams>();
+   
+  const id = params.productid;
+  console.log(id)
+
+
+
+    interface Product {
+      data: {
+        Name: string;
+        Description: string;
+        Price:string;
+      };
+    }
+
+    const [product, setProduct] = useState<Product>({
+      data: {
+        Name: '',
+        Description:'',
+        Price: ''
+      },
+    })
+   // console.log(product.data.Name);
   
     useEffect(() => {
       const fetchProduct = async () => {
-        const {data} = await axios.get('http://192.168.1.210:4000/api/productById/63f5a84fa54163c00ae535e1')
+        const {data} = await axios.get(`http://192.168.1.210:4000/api/productById/${id}`)
   
         setProduct(data)
       }
   
       fetchProduct()
-    }, [])
+    }, [id])
  return (
   <>
    <div className="container ">
@@ -75,48 +103,16 @@ function ProductDetailPage() {
         </div>
        </div>
        <div className="details col-md-6">
-        <h3 className="product-title">Foot wear</h3>
-        <div className="rating">
-         <div className="d-inline stars">
-          <i className="fa fa-star checked"></i>
-          <i className="fa fa-heart"></i>
-          <i className="fa fa-star checked"></i>
-          <i className="fa fa-star checked"></i>
-          <i className="fa fa-star checked"></i>
-          <i className="bi bi-star"></i>
-         </div>
-         <div className="review-no">41 reviews</div>
-        </div>
-        <div className="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quos rerum fuga. Quia, qui blanditiis.</div>
+        <h3 className="product-title">{product.data.Name}</h3>
+
+        <div className="product-description"> {product.data.Description}</div>
         <h4 className="price">
-         current price: <div className="d-inline">$180</div>
+         Price: ${product.data.Price}<div className="d-inline"></div>
         </h4>
-        <div className="vote">
-         <div>91%</div> of buyers enjoyed this product! <div>(87 votes)</div>
-        </div>
-        <h5 className="d-inline sizes">
-         sizes:
-         <div className="d-inline size" data-toggle="tooltip" title="small">
-          s
-         </div>
-         <div className="d-inline size" data-toggle="tooltip" title="medium">
-          m
-         </div>
-         <div className="d-inline size" data-toggle="tooltip" title="large">
-          l
-         </div>
-         <div className="d-inline size" data-toggle="tooltip" title="xtra large">
-          xl
-         </div>
-        </h5>
-        <h5 className="colors">
-         colors:
-         <div className="color orange not-available" data-toggle="tooltip" title="Not In store"></div>
-         <div className="color green"></div>
-         <div className="color blue"></div>
-        </h5>
+
+
         <div className="action">
-         <button className="add-to-cart btn btn-default" type="button">
+         <button className="add-to-cart btn btn-primary" type="button">
           add to cart
          </button>
          <button className="like btn btn-default" type="button">

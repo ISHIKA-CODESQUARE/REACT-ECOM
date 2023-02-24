@@ -6,6 +6,7 @@ import Login from "./Components/Login";
 import PrivateRoute from "./Auth/PrivateRoute";
 import Home from "./Components/Home";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer"
 import ProductListPage from './Components/PLP/tsx/ProductListPage';
 import ProductDetailPage from "./Components/ProductDetailPage";
 import Cart from "./Components/Cart";
@@ -19,13 +20,14 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/ProductListPage" component={ProductListPage} />
+          <Route exact path="/ProductListPage/:catid" component={ProductListPage} />
           <Route exact path="/productdetail/:productid" component={ProductDetailPage} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/checkout" component={Checkout} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={SignUp} />
         </Switch>
+        <Footer/>
       </BrowserRouter>
     </>
   );

@@ -5,9 +5,9 @@ import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 
 function ProductTiles(props :any) {
-
-    const productdata = props.productData?.data;
-    console.log(productdata);
+console.log(props,"ggg")
+    const productdata = props.productData;
+    console.log(productdata,"HHHH");
 
     return (
         <div className="tiles row">
@@ -16,7 +16,7 @@ function ProductTiles(props :any) {
         {productdata?.map((product:any)=>{
             return (
               <Card style={{ width: '18rem' }}>
-                <Link className="nav-link" to={`/productdetail/${product?.id}`}>
+                <Link className="nav-link" to={`/productdetail/${product?._id}`}>
               <Card.Img variant="top" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" />
             </Link>
               

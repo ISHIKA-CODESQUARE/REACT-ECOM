@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Header: React.FC = () => {
   return (
@@ -26,9 +27,17 @@ const Header: React.FC = () => {
                 <Link className="nav-link" to={"/"}>
                   Home
                 </Link>
-                <Link className="nav-link" to={"/ProductListPage"}>
-                  Catalog
-                </Link>
+            <NavDropdown title="Catalog" id="basic-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/ProductListPage/mans">
+                Mens
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/ProductListPage/women">
+                Womens
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/ProductListPage/kids">
+                Kids
+              </NavDropdown.Item>
+            </NavDropdown>
                 <Link className="nav-link" to={"/shop"}>
                   Shop
                 </Link>
