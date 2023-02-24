@@ -8,12 +8,9 @@ import { Routes, Route } from "react-router-dom"
 function Home() {
     return (
         <div>
-        <Routes>
-         <Route path="TopSeller" element={ <TopSeller/> } />
-         <Route path="DiscoverMore" element={ <DiscoverMore/> } />
-         <Route path="Shoppers" element={ <Shoppers/> } />
-
-       </Routes>
+        <TopSeller/> 
+        <DiscoverMore/> 
+        <Shoppers/> 
      </div>
     )
 }
