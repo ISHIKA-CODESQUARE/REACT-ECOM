@@ -6,24 +6,6 @@ import Row from 'react-bootstrap/Row';
 
 
 function TopSeller() {
-  const [productData, setProductData] = useState([]);
-
-    let API: string = "http://192.168.1.210:4000/api/allProducts";
-
-
-    const fetchApiData = async (API: string) => {
-        try{
-            const res = await fetch(API);
-            const data = await res.json();
-            setProductData(data);
-        }
-        catch(error){
-            console.log(error);
-        }
-    }
-    useEffect(()=>{
-        fetchApiData(API);
-    },[]);
 
   return (
     <div>
@@ -51,3 +33,28 @@ function TopSeller() {
 }
 
 export default TopSeller
+
+
+
+const productdata = props.productData?.data;
+console.log(productdata);
+
+return (
+    <div className="tiles row card-group">
+         <h1 className='mb-5'>Womens' Clothing</h1>
+
+    {productdata?.map((product:any)=>{
+        return (
+        <div className="card col-md-6 p-3">
+      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top" alt="..."/>
+      <div className="card-body">
+        <h5 className="card-title">{product?.Name}</h5>
+        <p className="card-text">{product?.Description}</p>
+        <p className="card-text"><small className="text-muted">Price = {product?.Price}</small></p>
+      </div>
+    </div>
+        )
+    })}
+  </div>
+
+)
