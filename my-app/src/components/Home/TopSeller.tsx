@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState , useEffect} from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -6,6 +6,24 @@ import Row from 'react-bootstrap/Row';
 
 
 function TopSeller() {
+  const [productData, setProductData] = useState([]);
+
+    let API: string = "http://192.168.1.210:4000/api/allProducts";
+
+
+    const fetchApiData = async (API: string) => {
+        try{
+            const res = await fetch(API);
+            const data = await res.json();
+            setProductData(data);
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+    useEffect(()=>{
+        fetchApiData(API);
+    },[]);
 
   return (
     <div>
