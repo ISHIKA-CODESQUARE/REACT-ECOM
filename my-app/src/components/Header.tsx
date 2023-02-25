@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { faShoppingCart  } from  '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header: React.FC = () => {
   return (
@@ -28,10 +30,10 @@ const Header: React.FC = () => {
                   Home
                 </Link>
             <NavDropdown title="Catalog" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/ProductListPage/mans">
+              <NavDropdown.Item as={Link} to="/ProductListPage/mens">
                 Mens
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/ProductListPage/women">
+              <NavDropdown.Item as={Link} to="/ProductListPage/womens">
                 Womens
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/ProductListPage/kids">
@@ -46,6 +48,10 @@ const Header: React.FC = () => {
                 </Link>
                 <Link className="nav-link" to={"/login"}>
                   Login
+                </Link>
+
+                <Link className="nav-link" to={"/cart"}>
+                <FontAwesomeIcon icon={faShoppingCart} />
                 </Link>
               </div>
             </div>
