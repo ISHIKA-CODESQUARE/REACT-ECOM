@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom"
-import Home from "./components/Home/Home"
-import ProductListPage from "./components/ProductListPage"
-import ProductDetailPage from "./components/ProductDetailPage"
-import Cart from "./components/Cart"
-import Payment from "./components/Payment"
-import Checkout from "./components/Checkout"
+import Home from "./Components/Home/Home"
+import ProductListPage from "./Components/ProductListPage"
+import ProductDetailPage from "./Components/ProductDetailPage"
+import Cart from "./Components/Cart"
+import Payment from "./Components/Payment"
+import Checkout from "./Components/Checkout"
 import './App.css';
 
 function App() {
