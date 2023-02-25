@@ -10,29 +10,26 @@ function Categories() {
     return(
         <>
     <Row className='cat '>
-<Col lg={4}>
-<div className='women'>
-   <h1> Women</h1>
-   <a className='btn btn-light ' href='#'>Shop Now</a>
-</div>
-</Col>
+        <Col lg={4}>
+            <div className='women'>
+                <h1> Women</h1>
+                <a className='btn btn-light ' href='/ProductListPage/womens'>Shop Now</a>
+            </div>
+        </Col>
 
-<Col lg={4}>
-<div className='men'>
-   <h1> Men</h1>
-   <a className='btn btn-light' href='#'>Shop Now</a>
+        <Col lg={4}>
+            <div className='men'>
+                <h1> Men</h1>
+                <a className='btn btn-light' href='/ProductListPage/mens'>Shop Now</a>
+            </div>
+        </Col>
 
-</div>
-</Col>
-
-<Col lg={4}>
-<div className='kids'>
-   <h1> Kids</h1>
-   <a className='btn btn-light' href='#'>Shop Now</a>
-
-
-</div>
-</Col>
+        <Col lg={4}>
+            <div className='kids'>
+                <h1> Kids</h1>
+                <a className='btn btn-light' href='/ProductListPage/kids'>Shop Now</a>
+            </div>
+        </Col>
     </Row>
     <Row className='mt-5 '>
         <Col lg={2}></Col>

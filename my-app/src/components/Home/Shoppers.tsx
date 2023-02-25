@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 
 function Shoppers() {
   return (
-    <div><h1 className='mb-5 mt-b text-dark'>@Shoppers</h1>
+    <div className='mb-5'><h1 className='mb-5 mt-5 text-dark'>@Shoppers</h1>
 
       <Row xs={1} md={5} className="g-6">
         {Array.from({ length: 5 }).map((_, idx) => (
