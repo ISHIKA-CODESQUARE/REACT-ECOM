@@ -1,0 +1,36 @@
+.women{
+    background-image: url('../images/womens\ \(2\).png');
+    background-size: cover;
+    height:500px;
+    border: 0px transparent;
+    padding-top: 200px;
+
+}
+.men{
+    background-image: url('../images/men.png');
+    background-size: cover;
+    height:500px;
+    border: 0px transparent;
+    padding-top: 200px;
+
+
+}
+.kids{
+    background-image: url('../images/kids.png');
+    background-size: cover;
+    height:500px;
+    border: 0px transparent;
+    padding-top: 200px;
+
+
+}
+h1{
+    color: white;
+}
+.cat{
+        width: 100%;
+    }
+    .info p{
+        font-size: 13px;
+    }
+
