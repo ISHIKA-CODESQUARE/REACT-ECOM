@@ -1,4 +1,4 @@
-import {useState,useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import TopSeller from './TopSeller'
 import DiscoverMore from './DiscoverMore'
 import Shoppers from './Shoppers'
@@ -14,28 +14,28 @@ function Home() {
 
 
     const fetchApiData = async (API: string) => {
-        try{
+        try {
             const res = await fetch(API);
             const data = await res.json();
             setProductData(data);
         }
-        catch(error){
+        catch (error) {
             console.log(error);
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         fetchApiData(API);
-    },[]);
+    }, []);
 
     return (
         <div>
-        <Categories/>
-        <New/>
-        <TopSeller productData={productData}/>
-        <DiscoverMore/>
-        <Shoppers/>
+            <Categories />
+            <New />
+            <TopSeller productData={productData} />
+            <DiscoverMore />
+            <Shoppers productData={productData}/>
 
-     </div>
+        </div>
     )
 }
 
