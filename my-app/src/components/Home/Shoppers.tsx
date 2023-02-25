@@ -5,10 +5,10 @@ import Row from 'react-bootstrap/Row';
 
 function Shoppers() {
   return (
-    <div><h1 className='mb-5 mt-b '>@Shoppers</h1>
+    <div><h1 className='mb-5 mt-b text-dark'>@Shoppers</h1>
 
-      <Row xs={1} md={6} className="g-2">
-        {Array.from({ length: 6 }).map((_, idx) => (
+      <Row xs={1} md={5} className="g-6">
+        {Array.from({ length: 5 }).map((_, idx) => (
           <Col mb-5 px-4 py-5>
             <Card>
               <Card.Img variant="top" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" />
