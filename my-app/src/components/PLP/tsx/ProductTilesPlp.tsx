@@ -91,7 +91,7 @@ console.log(props,"ggg")
                 <Card.Text>
                 {product?.Description}
                 </Card.Text>
-                <Button variant="primary" >Add to Cart</Button>
+                <Button variant="primary"onClick={()=> addToCart(product?._id,product?.Price,product?.Image,product?.Name)} >Add to Cart</Button>
               </Card.Body>
             </Card>
 
