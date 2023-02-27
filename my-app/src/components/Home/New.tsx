@@ -1,5 +1,4 @@
 import React from 'react'
-import fashion8 from '../Home/images/fashion8.jpg'
 import { Container, Row, Col } from 'react-bootstrap';
 import {BsArrowRight} from 'react-icons/bs';
 import Stack from 'react-bootstrap/esm/Stack';
