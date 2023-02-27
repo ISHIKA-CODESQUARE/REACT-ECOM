@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   const basket = localStorage.getItem('basket');
   var myBasket = JSON.parse(basket);
   useEffect(()=>{
-    setCount(myBasket.length);
+    setCount(myBasket?.length);
     // window.location.reload()
   },[count])
  

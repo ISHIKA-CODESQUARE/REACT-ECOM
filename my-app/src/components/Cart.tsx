@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 
 import { faInr } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import CartProducts from './CartProduct'
+import CartProducts from './CartProduct';
+import { Link } from "react-router-dom";
 
 import "../css/cart.css";
 const Cart = () => {
@@ -109,7 +110,9 @@ useEffect(()=>{
             </div>
 
             <div className="row">
-              <button className="btn btn-primary buttonWidth" onClick={()=>checkout()}>Checkout</button>
+              <button className="btn btn-primary buttonWidth" onClick={()=>checkout()}> <Link to={"/checkout"}>
+                Checkout
+                </Link></button>
             </div>
           </div>
           
