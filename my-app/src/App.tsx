@@ -4,7 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import PrivateRoute from "./Auth/PrivateRoute";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer"
 import ProductListPage from './components/PLP/tsx/ProductListPage';
@@ -14,12 +14,15 @@ import Checkout from "./components/Checkout";
 import "./App.css";
 import {BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
+import  ScrolltoTop  from "./components/ScrolltoTop";
+import { ClipLoader } from "react-spinners";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header />
+        <ScrolltoTop />
           <Route exact path="/" component={Home} />
           <Route exact path="/ProductListPage/:catid" component={ProductListPage} />
           <Route exact path="/productdetail/:productid" component={ProductDetailPage} />
