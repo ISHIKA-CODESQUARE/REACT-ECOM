@@ -14,12 +14,15 @@ import Checkout from "./components/Checkout";
 import "./App.css";
 import {BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
+import  ScrolltoTop  from "./components/ScrolltoTop";
+import { ClipLoader } from "react-spinners";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header />
+        <ScrolltoTop />
           <Route exact path="/" component={Home} />
           <Route exact path="/ProductListPage/:catid" component={ProductListPage} />
           <Route exact path="/productdetail/:productid" component={ProductDetailPage} />
