@@ -12,13 +12,14 @@ import ProductDetailPage from "./components/ProductDetailPage";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import "./App.css";
-import {BrowserRouter, Switch, Route } from 'react-router-dom';
+import {BrowserRouter } from 'react-router-dom';
+import { Route } from "react-router";
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header />
-        <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/ProductListPage/:catid" component={ProductListPage} />
           <Route exact path="/productdetail/:productid" component={ProductDetailPage} />
@@ -26,7 +27,7 @@ function App() {
           <Route exact path="/checkout" component={Checkout} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={SignUp} />
-        </Switch>
+
         <Footer/>
       </BrowserRouter>
     </>
