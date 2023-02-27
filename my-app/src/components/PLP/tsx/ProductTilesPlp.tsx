@@ -50,7 +50,7 @@ console.log(props,"ggg")
       var myBasket:any = JSON.parse(localStorage.getItem('basket')as any)? JSON.parse(localStorage.getItem('basket')as any):[];
       if(myBasket[0] != null){
         for(var i = 0 ; i< myBasket.length; i ++ ){
-            if(myBasket.find(myBasketid => myBasketid.pid === productID)){
+            if(myBasket.find(myBasketid => myBasketid.pid === productID)){  // one line whole iteration bcoz we won't need multiple iteration bcoz we have else loop as well which will run.
               // console.log(myBasket[i].qty, 'old quantity')
               if(myBasket[i].pid === productID){
                 myBasket[i].qty = myBasket[i].qty + 1;
