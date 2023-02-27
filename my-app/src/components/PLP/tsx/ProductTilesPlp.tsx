@@ -49,22 +49,22 @@ console.log(props,"ggg")
     function addToCart(productID,price,image,name){
       var myBasket:any = JSON.parse(localStorage.getItem('basket')as any)? JSON.parse(localStorage.getItem('basket')as any):[];
       if(myBasket[0] != null){
-        for(var i = 0 ; i< myBasket.length; i ++ ){
+       
             if(myBasket.find(myBasketid => myBasketid.pid === productID)){  // one line whole iteration bcoz we won't need multiple iteration bcoz we have else loop as well which will run.
-              // console.log(myBasket[i].qty, 'old quantity')
-              if(myBasket[i].pid === productID){
-                myBasket[i].qty = myBasket[i].qty + 1;
+                                                                            // console.log(myBasket[i].qty, 'old quantity')
+              var index = myBasket.findIndex(myBasketid => myBasketid.pid === productID);
+              if(index !== -1){
+              if(myBasket[index].pid === productID){
+                myBasket[index].qty = myBasket[index].qty + 1;
               }
                 // console.log(myBasket[i].qty,"updated quantity")
                 localStorage.setItem('basket', JSON.stringify(myBasket) as any);
             }
+          }
             else{
               myBasket?.push({pid:productID, price:price, qty:1,image:image,name:name})
               localStorage.setItem('basket',JSON.stringify(myBasket) as any);
           }
-       
-        }
-        
         // localStorage.setItem('basket',JSON.stringify(basket) as any)
       }
       else{
