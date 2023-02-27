@@ -1,35 +1,51 @@
-import React from 'react'
-import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import React from 'react'
+import { Link } from 'react-router-dom';
+import './CSS/Topseller.css';
 
 
+function TopSeller(props: any) {
 
-function TopSeller() {
+  const productdata = props.productData?.data;
+
+  console.log("ss", productdata);
 
   return (
-    <div>
+
+    <div className="tiles row card-group">
       <h1 className='mb-5 text-dark'>Top month Sellers</h1>
 
-      <Row xs={2} md={4} className="g-6">
-        {Array.from({ length: 8 }).map((_, idx) => (
-          <Col mb-5 px-4 py-5>
-            <Card className= "mt-4" >
-              <Card.Img variant="top" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" />
-              <Card.Body>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+      <Row  >
+
+        {
+          productdata?.map((product: any, index: number) => {
+         
+
+            return (
+              index > 8  && index < 17 ?
+              <Col lg={3}>
+                <div>
+                  <Link className="nav-link" to={`/productdetail/${product?._id}`}>
+
+                    <img src={`https://ecommbackend-yvqe.onrender.com/${product?.Image}`} className="h-75 w-75" alt="..." /> </Link>
+                </div>
+                <h5 className="card-title">{product?.Name}</h5>
+                <p className="card-text">{product?.Description}</p>
+                <p className="card-text"><small className="text-muted">Price = {product?.Price}</small></p>
+
+              </Col>:""
+
+            )
+          }) }
+
       </Row>
+
     </div>
+
   );
+
 }
 
 export default TopSeller
+
