@@ -1,0 +1,37 @@
+.women{
+    background-image: url('https://images.pexels.com/photos/1877736/pexels-photo-1877736.jpeg?auto=compress&cs=tinysrgb&w=600');
+    /* background-image: url('../images/womens\ \(2\).png'); */
+    background-size: cover;
+    height:500px;
+    border: 0px transparent;
+    padding-top: 200px;
+
+}
+.men{
+    background-image: url('https://images.pexels.com/photos/3178767/pexels-photo-3178767.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-size: cover;
+    height:500px;
+    border: 0px transparent;
+    padding-top: 200px;
+
+
+}
+.kids{
+    background-image: url('https://images.pexels.com/photos/1620788/pexels-photo-1620788.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-size: cover;
+    height:500px;
+    border: 0px transparent;
+    padding-top: 200px;
+
+
+}
+h1{
+    color: white;
+}
+.cat{
+        width: 100%;
+    }
+    .info p{
+        font-size: 13px;
+    }
+
