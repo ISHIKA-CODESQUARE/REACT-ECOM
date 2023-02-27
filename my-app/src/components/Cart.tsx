@@ -22,10 +22,10 @@ const Cart = () => {
   // console.log(productData,'newData')
 useEffect(()=>{
   if(productData){
-    var total_price : Number = 0;
+    var total_price : any = 0;
     console.log(productData);
     productData.forEach((items)=>{
-      total_price = total_price + items.price;
+      total_price = total_price + (items.price*items.qty);
       setTotalPrice(total_price);
     })
   }
