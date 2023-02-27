@@ -67,24 +67,40 @@ function ProductDetailPage() {
       var myBasket:any = JSON.parse(localStorage.getItem('basket')as any)? JSON.parse(localStorage.getItem('basket')as any):[];
       // console.log(myBasket,"mybasket")
       if(myBasket[0] != null){
-        for(var i = 0 ; i< myBasket.length; i ++ ){
-          if(myBasket.find(myBasketid => myBasketid.pid === productDetail._id)){
-            // console.log(myBasket[i].qty, 'old quantity')
-            if(myBasket[i].pid === productDetail._id){
-              myBasket[i].qty = myBasket[i].qty + parseFloat(selectedOption);
-            }
-              // console.log(myBasket[i].qty,"updated quantity")
-              localStorage.setItem('basket', JSON.stringify(myBasket) as any);
-          }
-          else{
-            myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption),image:productDetail.Image,name:productDetail.Name})
-            localStorage.setItem('basket',JSON.stringify(myBasket) as any);
+        // for(var i = 0 ; i< myBasket.length; i ++ ){
+        //   if(myBasket.find(myBasketid => myBasketid.pid === productDetail._id)){
+        //     // console.log(myBasket[i].qty, 'old quantity')
+        //     if(myBasket[i].pid === productDetail._id){
+        //       myBasket[i].qty = myBasket[i].qty + parseFloat(selectedOption);
+        //     }
+        //       // console.log(myBasket[i].qty,"updated quantity")
+        //       localStorage.setItem('basket', JSON.stringify(myBasket) as any);
+        //   }
+          // else{
+          //   myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption),image:productDetail.Image,name:productDetail.Name})
+          //   localStorage.setItem('basket',JSON.stringify(myBasket) as any);
             
+          // }
+        // }
+        if(myBasket.find(myBasketid => myBasketid.pid === productDetail._id)){
+        var index = myBasket.findIndex(myBasketid => myBasketid.pid === productDetail._id);
+        if(index !== -1){
+          // console.log(myBasket[index].qty, 'old quantity')
+          if(myBasket[index].pid === productDetail._id){
+            myBasket[index].qty = myBasket[index].qty + parseFloat(selectedOption);
           }
+          // console.log(myBasket[index].qty,"updated quantity")
+          localStorage.setItem('basket', JSON.stringify(myBasket) as any);
         }
         
         // localStorage.setItem('basket',JSON.stringify(basket) as any)
       }
+      else{
+        myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption),image:productDetail.Image,name:productDetail.Name})
+        localStorage.setItem('basket',JSON.stringify(myBasket) as any);
+        
+      }
+    }
       else{
         myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption), image:productDetail.Image,name:productDetail.Name})
         localStorage.setItem('basket',JSON.stringify(myBasket) as any);

@@ -83,7 +83,7 @@ console.log(props,"ggg")
             return (
               <Card style={{ width: '18rem' }}>
                 <Link className="nav-link" to={`/productdetail/${product?._id}`}>
-              <Card.Img variant="top" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" />
+              <Card.Img variant="top" src={`https://ecommbackend-yvqe.onrender.com/${product?.Image}`} />
             </Link>
               
               <Card.Body>
