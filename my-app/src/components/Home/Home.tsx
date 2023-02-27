@@ -10,7 +10,7 @@ import Categories from './Categories'
 function Home() {
     const [productData, setProductData] = useState([]);
 
-    let API: string = "http://192.168.1.210:4000/api/allProducts";
+    let API: string = "https://ecommbackend-yvqe.onrender.com/api/allProducts";
 
 
     const fetchApiData = async (API: string) => {
@@ -33,7 +33,7 @@ function Home() {
             <New />
             <TopSeller productData={productData} />
             <DiscoverMore />
-            {/* <Shoppers productData={productData}/> */}
+            <Shoppers productData={productData}/>
 
         </div>
     )
