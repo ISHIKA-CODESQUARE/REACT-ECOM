@@ -33,7 +33,7 @@ function Home() {
             <New />
             <TopSeller productData={productData} />
             <DiscoverMore />
-            <Shoppers productData={productData}/>
+            {/* <Shoppers productData={productData}/> */}
 
         </div>
     )

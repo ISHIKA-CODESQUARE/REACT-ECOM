@@ -49,7 +49,7 @@ function Shoppers(props: any) {
       <h1 className='mb-5 text-dark'>@Shoppers</h1>
 
 <Row  >
-      {productdata.slice(0,4)?.map((product: any) => {
+      {productdata?.map((product: any) => {
         return (
           <Col lg={3}>
           <img src={`http://192.168.1.210:4000/${product?.Image}`} className="h-75 w-75" alt="..."/>
