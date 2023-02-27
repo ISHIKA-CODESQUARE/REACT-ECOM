@@ -48,8 +48,8 @@ function ProductDetailPage() {
       const fetchProduct = async () => {
         // const {data} = await axios.get(`http://192.168.1.210:4000/api/productById/${id}`)
         // setProduct(data)
-
-        let url = `http://192.168.1.210:4000/api/productById/${id}`
+        
+        let url = `https://ecommbackend-yvqe.onrender.com/api/productById/${id}`
         let res = await fetch(url);
         let data1 = await res.json();
         const {message , data} = data1;
@@ -71,12 +71,13 @@ function ProductDetailPage() {
           if(myBasket.find(myBasketid => myBasketid.pid === productDetail._id)){
             // console.log(myBasket[i].qty, 'old quantity')
             if(myBasket[i].pid === productDetail._id){
-            myBasket[i].qty = myBasket[i].qty + parseFloat(selectedOption);}
-            // console.log(myBasket[i].qty,"updated quantity")
-            localStorage.setItem('basket', JSON.stringify(myBasket) as any);
+              myBasket[i].qty = myBasket[i].qty + parseFloat(selectedOption);
+            }
+              // console.log(myBasket[i].qty,"updated quantity")
+              localStorage.setItem('basket', JSON.stringify(myBasket) as any);
           }
           else{
-            myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption)})
+            myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption),image:productDetail.Image,name:productDetail.Name})
             localStorage.setItem('basket',JSON.stringify(myBasket) as any);
             
           }
@@ -85,7 +86,7 @@ function ProductDetailPage() {
         // localStorage.setItem('basket',JSON.stringify(basket) as any)
       }
       else{
-        myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption), image:productDetail.Image})
+        myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption), image:productDetail.Image,name:productDetail.Name})
         localStorage.setItem('basket',JSON.stringify(myBasket) as any);
       }
     }
@@ -101,8 +102,8 @@ function ProductDetailPage() {
        <div className="preview col-md-6">
         <div className="preview-pic tab-content">
          <div className="tab-pane  active" id="pic-1">
-          
-          <img className="img_pdp"  src={`http://192.168.1.210:4000/${productDetail?.Image}`} alt="img" />
+         
+          <img className="img_pdp"  src={`https://ecommbackend-yvqe.onrender.com/${productDetail?.Image}`} alt="img" />
          </div>
         </div>
         

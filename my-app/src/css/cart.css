@@ -3,3 +3,24 @@
     font-size:large;
     font-weight:bolder;
 }
+
+.backgroundSet{
+    background-color: rgb(145, 142, 142);
+    padding-bottom: 5%;
+}
+
+.arrangeRight{
+    margin-top:5%;
+    font-size: large;
+}
+
+.arrangeLeft{
+    text-align: left;
+    margin-top: 5%;
+    font-size: large;
+}
+
+.buttonWidth{
+    max-width: 100%;
+    height: 10%;
+}

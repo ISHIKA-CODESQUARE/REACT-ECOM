@@ -69,7 +69,7 @@ console.log(props,"ggg")
             )
         })}
       </div>
-
+    )
   console.log(productdata);
 
   return (

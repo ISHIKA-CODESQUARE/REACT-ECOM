@@ -19,8 +19,8 @@ console.log(catid, "aamir")
 
     const [productData, setProductData] = useState([]);
     // https://1e18-2401-4900-1c18-7e2a-1d35-f1dc-7d75-32d4.in.ngrok.io/api/productByCgid/mans
-
-    let API: string = `http://192.168.1.210:4000/api/productByCgid/${catid}`;
+    
+    let API: string = `https://ecommbackend-yvqe.onrender.com/api/productByCgid/${catid}`;
 console.log(productData,"jjjjj")
 
     const fetchApiData = async (API: string) => {
