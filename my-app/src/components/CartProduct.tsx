@@ -15,6 +15,7 @@ const CartProduct = ({ productData }) => {
         myArray.splice(indexToDelete, 1);
         localStorage.setItem("basket", JSON.stringify(myArray));
       }
+      window.location.reload()
   }
   // const [newData, setNewData] = useState();
   // const addToCart = () => {

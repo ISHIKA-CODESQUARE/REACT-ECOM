@@ -27,7 +27,7 @@ console.log(productData,"jjjjj")
         try{
             const res = await fetch(API);
             const data = await res.json();
-            console.log(data)
+            console.log(data,'myData')
             setProductData(data);
 
         }

@@ -33,6 +33,17 @@ useEffect(()=>{
   if(totalPrice){
     console.log(totalPrice)
   }
+
+  function checkout(){
+  
+    fetch('https://ecommbackend-yvqe.onrender.com/api/checkout', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ data: storedData })
+  })
+  }
  
 
   // if (productData) {
@@ -98,7 +109,7 @@ useEffect(()=>{
             </div>
 
             <div className="row">
-              <button className="btn btn-primary buttonWidth">Checkout</button>
+              <button className="btn btn-primary buttonWidth" onClick={()=>checkout()}>Checkout</button>
             </div>
           </div>
           

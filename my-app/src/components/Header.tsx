@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { faShoppingCart  } from  '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header: React.FC = () => {
+  const [count,setCount] = useState(0);
+  const basket = localStorage.getItem('basket');
+  var myBasket = JSON.parse(basket);
+  useEffect(()=>{
+    setCount(myBasket.length);
+    // window.location.reload()
+  },[count])
+ 
+
+
   return (
     <>
       <div className="wrapper_header">
@@ -51,8 +61,9 @@ const Header: React.FC = () => {
                 </Link>
 
                 <Link className="nav-link" to={"/cart"}>
-                <FontAwesomeIcon icon={faShoppingCart} />
+                <FontAwesomeIcon icon={faShoppingCart} /><sup>{count}</sup>
                 </Link>
+                
               </div>
             </div>
           </nav>

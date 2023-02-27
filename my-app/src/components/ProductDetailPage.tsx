@@ -89,6 +89,7 @@ function ProductDetailPage() {
         myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption), image:productDetail.Image,name:productDetail.Name})
         localStorage.setItem('basket',JSON.stringify(myBasket) as any);
       }
+      window.location.reload()
     }
     console.log(productDetail)
     

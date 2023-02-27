@@ -46,6 +46,35 @@ console.log(props,"ggg")
     const productdata = props.productData;
     console.log(productdata,"HHHH");
 
+    function addToCart(productID,price,image,name){
+      var myBasket:any = JSON.parse(localStorage.getItem('basket')as any)? JSON.parse(localStorage.getItem('basket')as any):[];
+      if(myBasket[0] != null){
+        for(var i = 0 ; i< myBasket.length; i ++ ){
+            if(myBasket.find(myBasketid => myBasketid.pid === productID)){
+              // console.log(myBasket[i].qty, 'old quantity')
+              if(myBasket[i].pid === productID){
+                myBasket[i].qty = myBasket[i].qty + 1;
+              }
+                // console.log(myBasket[i].qty,"updated quantity")
+                localStorage.setItem('basket', JSON.stringify(myBasket) as any);
+            }
+            else{
+              myBasket?.push({pid:productID, price:price, qty:1,image:image,name:name})
+              localStorage.setItem('basket',JSON.stringify(myBasket) as any);
+          }
+       
+        }
+        
+        // localStorage.setItem('basket',JSON.stringify(basket) as any)
+      }
+      else{
+        myBasket?.push({pid:productID, price:price, qty:1,image:image,name:name})
+        localStorage.setItem('basket',JSON.stringify(myBasket) as any);
+      }
+      window.location.reload();
+    }
+
+
     return (
         <div className="tiles row">
              <h1 className='mb-5'>Womens' Clothing</h1>
@@ -62,7 +91,7 @@ console.log(props,"ggg")
                 <Card.Text>
                 {product?.Description}
                 </Card.Text>
-                <Button variant="primary">Add to Cart</Button>
+                <Button variant="primary" >Add to Cart</Button>
               </Card.Body>
             </Card>
 
@@ -70,6 +99,7 @@ console.log(props,"ggg")
         })}
       </div>
     )
+    // onClick={()=> addToCart(product?._id,product?.Price,product?.Image,product?.Name)}>
   console.log(productdata);
 
   return (
