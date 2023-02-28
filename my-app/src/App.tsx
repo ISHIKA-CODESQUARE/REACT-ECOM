@@ -15,7 +15,7 @@ import "./App.css";
 import {BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
 import  ScrolltoTop  from "./components/ScrolltoTop";
-import { ClipLoader } from "react-spinners";
+// import { ClipLoader } from "react-spinners";
 
 function App() {
   return (
