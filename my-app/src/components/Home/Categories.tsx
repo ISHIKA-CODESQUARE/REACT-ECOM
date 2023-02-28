@@ -13,7 +13,7 @@ function Categories() {
         <Col lg={4}>
             <div className='women text-center'>
                 <h1> Women</h1>
-                <a className='btn btn-light ' href='/ProductListPage/womens'>Shop Now</a>
+                <a className='btn btn-light text-center ' href='/ProductListPage/womens'>Shop Now</a>
             </div>
         </Col>
 

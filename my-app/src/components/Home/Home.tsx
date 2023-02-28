@@ -3,7 +3,7 @@ import TopSeller from './TopSeller'
 import DiscoverMore from './DiscoverMore'
 import Shoppers from './Shoppers'
 import New from './New'
-import {Route } from "react-router-dom"
+import { Route } from "react-router-dom"
 import Categories from './Categories'
 
 

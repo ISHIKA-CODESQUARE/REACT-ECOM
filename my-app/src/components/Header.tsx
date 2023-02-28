@@ -31,6 +31,7 @@ const Header: React.FC = () => {
                 <Link className="nav-link" to={"/"}>
                   <img src="./logo1.jpg" />
                 </Link>
+<<<<<<< HEAD
                 <button
                   className="navbar-toggler"
                   type="button"
@@ -42,6 +43,34 @@ const Header: React.FC = () => {
                 >
                   <span className="navbar-toggler-icon"></span>
                 </button>
+=======
+            <NavDropdown title="Catalog" id="basic-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/ProductListPage/mens">
+                Mens
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/ProductListPage/womens">
+                Womens
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/ProductListPage/kids">
+                Kids
+              </NavDropdown.Item>
+            </NavDropdown>
+                <Link className="nav-link" to={"/shop"}>
+                  Shop
+                </Link>
+                <Link className="nav-link" to={"/register"}>
+                  Register
+                </Link>
+                <Link className="nav-link" to={"/login"}>
+                  Login
+                </Link>
+
+                <Link className="nav-link" to={"/cart"}>
+                <FontAwesomeIcon icon={faShoppingCart} /><sup>{count}</sup>
+                </Link>
+             
+                
+>>>>>>> b1d7f95fb8a933d6a96252ad91262bc4c8bff26c
               </div>
               <div className="col-6">
                 <div
