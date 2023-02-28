@@ -11,21 +11,21 @@ function Categories() {
         <>
     <Row className='cat '>
         <Col lg={4}>
-            <div className='women'>
+            <div className='women text-center'>
                 <h1> Women</h1>
-                <a className='btn btn-light ' href='/ProductListPage/womens'>Shop Now</a>
+                <a className='btn btn-light text-center ' href='/ProductListPage/womens'>Shop Now</a>
             </div>
         </Col>
 
         <Col lg={4}>
-            <div className='men'>
+            <div className='men text-center'>
                 <h1> Men</h1>
                 <a className='btn btn-light' href='/ProductListPage/mens'>Shop Now</a>
             </div>
         </Col>
 
         <Col lg={4}>
-            <div className='kids'>
+            <div className='kids text-center'>
                 <h1> Kids</h1>
                 <a className='btn btn-light' href='/ProductListPage/kids'>Shop Now</a>
             </div>
