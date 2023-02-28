@@ -47,7 +47,7 @@ function Shoppers(props: any) {
   return (
 
     <div className="tiles row card-group">
-      <h1 className='mb-5 text-dark'>@Shoppers</h1>
+      <h1 className='mb-5 text-dark text-center'>@Shoppers</h1>
 
       <Row>
 
