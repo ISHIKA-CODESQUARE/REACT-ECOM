@@ -117,7 +117,6 @@ console.log(cartProducts,"cartProducts")
       'Authorization': `${token}`
     }
   });
-
   }else {
     alert("Somthing is missing check all the required fileds")
   }

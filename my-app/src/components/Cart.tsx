@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 
 import { faInr } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import CartProducts from './CartProduct'
+import CartProducts from './CartProduct';
+import { Link } from "react-router-dom";
 
 import "../css/cart.css";
 const Cart = () => {
@@ -21,10 +22,10 @@ const Cart = () => {
   // console.log(productData,'newData')
 useEffect(()=>{
   if(productData){
-    var total_price : Number = 0;
+    var total_price : any = 0;
     console.log(productData);
     productData.forEach((items)=>{
-      total_price = total_price + items.price;
+      total_price = total_price + (items.price*items.qty);
       setTotalPrice(total_price);
     })
   }
@@ -108,7 +109,9 @@ useEffect(()=>{
             </div>
 
             <div className="row">
-              <button className="btn btn-primary buttonWidth" onClick={()=>checkout()}>Checkout</button>
+              <button className="btn btn-primary buttonWidth" onClick={()=>checkout()}> <Link to={"/checkout"}>
+                Checkout
+                </Link></button>
             </div>
           </div>
           
