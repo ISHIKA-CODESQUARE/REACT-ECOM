@@ -46,13 +46,8 @@ function Shoppers(props: any) {
 
   return (
 
-<<<<<<< HEAD
-    <div className="tiles row card-group">
-      <h1 className='mb-5 text-dark text-center'>@Shoppers</h1>
-=======
     <div className="tiles row card-group text-center">
       <h1 className='mb-5 text-dark'>@Shoppers</h1>
->>>>>>> b1d7f95fb8a933d6a96252ad91262bc4c8bff26c
 
       <Row>
 

@@ -43,6 +43,17 @@ div button.buttons {
   line-height: 43px;
 }
 
+.topSeller div {
+  
+    height: 230px;
+
+}
+
+.topImage  {
+  height: 200px !important;
+  display: block;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

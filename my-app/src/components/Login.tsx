@@ -36,9 +36,9 @@ const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
     axios
       .post(`${base}/login`, params)
       .then(function (response) {
-          localStorage.setItem("auth", response.data.token);
           setTimeout(() => {
             setisloading(false)
+            localStorage.setItem("auth", response.data.token);
             history.push("/");
           }, 3000);
       })
