@@ -82,7 +82,6 @@ useEffect(()=>{
                 </div>
               </div>
             </div>
-          </div>
           <div className="col-4 ">
             <div className="row border backgroundSet ">
               <div className="col-6 arrangeRight">
@@ -117,6 +116,7 @@ useEffect(()=>{
           </div>
           
         </div>
+          </div>
 
 
 

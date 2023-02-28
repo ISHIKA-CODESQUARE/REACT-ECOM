@@ -30,7 +30,7 @@ const SignUp: FC<SomeComponentProps> = ({ history }) => {
     };
     //console.log(data);
     axios
-      .post(`${base}/register`, params)
+      .post(`http://192.168.1.210:4000/api/register`, params)
       .then(function (response) {
         console.log(response)
         toast.success(response.data.msg, {

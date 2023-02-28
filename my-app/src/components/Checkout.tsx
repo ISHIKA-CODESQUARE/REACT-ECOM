@@ -1,4 +1,5 @@
-import React,{ useEffect, useState } from 'react'
+import React,{ useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 interface FormValues {
   name: string;
@@ -253,7 +254,9 @@ console.log(cartProducts,"cartProducts")
       <option value={item?._id}>{item?.name} {`(₹ ${item?.price})`}</option>
       ))}
     </select> 
-    <button type="button" className="btn btn-primary form-control mt-4" onClick={(e)=>handleOrder(e)}>Place Order</button>
+    <button type="button" className="btn btn-primary form-control mt-4" onClick={(e)=>handleOrder(e)}> <Link to={"/thankyou"}>
+                  Order Confirm
+                </Link></button>
     </div>
     </div>
     </div>

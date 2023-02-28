@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Header: React.FC = () => {
   const [count,setCount] = useState(0);
   const basket = localStorage.getItem('basket');
+  console.log(basket);
+  
   var myBasket = JSON.parse(basket);
   useEffect(()=>{
     setCount(myBasket?.length);

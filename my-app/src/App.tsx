@@ -12,11 +12,16 @@ import ProductDetailPage from "./components/ProductDetailPage";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import "./App.css";
+<<<<<<< HEAD
+import {BrowserRouter, Switch, Route } from 'react-router-dom';
+import ThankYouPage from "./components/Thankyou";
+=======
 import {BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
 import  ScrolltoTop  from "./components/ScrolltoTop";
 // import { ClipLoader } from "react-spinners";
 
+>>>>>>> c3ecf86be47ecffe90a16a33b5ad46e5955facb8
 function App() {
   return (
     <>
@@ -30,7 +35,13 @@ function App() {
           <Route exact path="/checkout" component={Checkout} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={SignUp} />
+<<<<<<< HEAD
+          <Route exact path="/thankyou" component={ThankYouPage} />
+          
+        </Switch>
+=======
 
+>>>>>>> c3ecf86be47ecffe90a16a33b5ad46e5955facb8
         <Footer/>
       </BrowserRouter>
     </>
