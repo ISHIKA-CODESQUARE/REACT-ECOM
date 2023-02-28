@@ -1,18 +1,19 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import SignUp from "./Components/SignUp";
-import Login from "./Components/Login";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
 import PrivateRoute from "./Auth/PrivateRoute";
-import Home from "./Components/Home";
-import Header from "./Components/Header";
-import Footer from "./Components/Footer"
-import ProductListPage from './Components/PLP/tsx/ProductListPage';
-import ProductDetailPage from "./Components/ProductDetailPage";
-import Cart from "./Components/Cart";
-import Checkout from "./Components/Checkout";
+import Home from "./components/Home";
+import Header from "./components/Header";
+import Footer from "./components/Footer"
+import ProductListPage from './components/PLP/tsx/ProductListPage';
+import ProductDetailPage from "./components/ProductDetailPage";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 import "./App.css";
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
+import ThankYouPage from "./components/Thankyou";
 function App() {
   return (
     <>
@@ -26,6 +27,8 @@ function App() {
           <Route exact path="/checkout" component={Checkout} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={SignUp} />
+          <Route exact path="/thankyou" component={ThankYouPage} />
+          
         </Switch>
         <Footer/>
       </BrowserRouter>

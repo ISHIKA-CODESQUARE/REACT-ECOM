@@ -13,12 +13,8 @@ function ProductDetailPage() {
     interface RouteParams {
       productid: string;
     }
-
-
     const params = useParams<RouteParams>();
-   
-  const id = params.productid;
-  console.log(id)
+    const id = params.productid;
 
 
 
@@ -29,6 +25,15 @@ function ProductDetailPage() {
         Price:string;
       };
     }
+
+    const [productDetail, setProductDetail] = useState<any>();
+    const [basket, setBasket] = useState<[Object]>([{}]);
+    const [products,setProducts] = useState();
+    const [selectedOption, setSelectedOption] = useState<any>(1);
+
+    const handleOptionChange = (event:any) => {
+      setSelectedOption(event.target.value);
+    };
 
     const [product, setProduct] = useState<Product>({
       data: {
@@ -41,13 +46,54 @@ function ProductDetailPage() {
   
     useEffect(() => {
       const fetchProduct = async () => {
-        const {data} = await axios.get(`http://192.168.1.210:4000/api/productById/${id}`)
-  
-        setProduct(data)
+        // const {data} = await axios.get(`http://192.168.1.210:4000/api/productById/${id}`)
+        // setProduct(data)
+        
+        let url = `https://ecommbackend-yvqe.onrender.com/api/productById/${id}`
+        let res = await fetch(url);
+        let data1 = await res.json();
+        const {message , data} = data1;
+
+        setProductDetail(data);
+        
+        console.log(message);
+        console.log(data)
       }
   
       fetchProduct()
     }, [id])
+
+    const addToCart = () => {
+      var myBasket:any = JSON.parse(localStorage.getItem('basket')as any)? JSON.parse(localStorage.getItem('basket')as any):[];
+      // console.log(myBasket,"mybasket")
+      if(myBasket[0] != null){
+        for(var i = 0 ; i< myBasket.length; i ++ ){
+          if(myBasket.find(myBasketid => myBasketid.pid === productDetail._id)){
+            // console.log(myBasket[i].qty, 'old quantity')
+            if(myBasket[i].pid === productDetail._id){
+              myBasket[i].qty = myBasket[i].qty + parseFloat(selectedOption);
+            }
+              // console.log(myBasket[i].qty,"updated quantity")
+              localStorage.setItem('basket', JSON.stringify(myBasket) as any);
+          }
+          else{
+            myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption),image:productDetail.Image,name:productDetail.Name})
+            localStorage.setItem('basket',JSON.stringify(myBasket) as any);
+            
+          }
+        }
+        
+        // localStorage.setItem('basket',JSON.stringify(basket) as any)
+      }
+      else{
+        myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption), image:productDetail.Image,name:productDetail.Name})
+        localStorage.setItem('basket',JSON.stringify(myBasket) as any);
+      }
+      window.location.reload()
+    }
+    console.log(productDetail)
+    
+    
  return (
   <>
    <div className="container ">
@@ -57,62 +103,31 @@ function ProductDetailPage() {
        <div className="preview col-md-6">
         <div className="preview-pic tab-content">
          <div className="tab-pane  active" id="pic-1">
-          <img className="img_pdp"  src="https://i.pinimg.com/originals/f4/5f/60/f45f608cc8624fd6404b0aa6df42607f.png" alt="img" />
-         </div>
-         <div className="tab-pane" id="pic-2">
-          <img className="img_pdp" src="https://i.pinimg.com/originals/f4/5f/60/f45f608cc8624fd6404b0aa6df42607f.png" alt="img" />
-         </div>
-         <div className="tab-pane">
-          <img className="img_pdp" id="pic-3" src="https://i.pinimg.com/originals/f4/5f/60/f45f608cc8624fd6404b0aa6df42607f.png" alt="img" />
-         </div>
-         <div className="tab-pane">
-          <img className="img_pdp" id="pic-4" src="https://i.pinimg.com/originals/f4/5f/60/f45f608cc8624fd6404b0aa6df42607f.png" alt="img" />
-         </div>
-         <div className="tab-pane">
-          <img className="img_pdp" id="pic-5" src="https://i.pinimg.com/originals/f4/5f/60/f45f608cc8624fd6404b0aa6df42607f.png" alt="img" />
+         
+          <img className="img_pdp"  src={`https://ecommbackend-yvqe.onrender.com/${productDetail?.Image}`} alt="img" />
          </div>
         </div>
-        <div className="preview-thumbnail nav nav-tabs">
-         <div className="preview-thumbnail nav nav-tabs">
-          <div className="active li">
-           <a data-target="#pic-1" data-toggle="tab">
-            <img src="https://freepngimg.com/save/26252-black-shoe-image/475x267" />
-           </a>
-          </div>
-          <div className="li">
-           <a data-target="#pic-2" data-toggle="tab">
-            <img src="https://freepngimg.com/save/26252-black-shoe-image/475x267" />
-           </a>
-          </div>
-          <div className="li">
-           <a data-target="#pic-3" data-toggle="tab">
-            <img src="https://freepngimg.com/save/26252-black-shoe-image/475x267" />
-           </a>
-          </div>
-          <div className="li">
-           <a data-target="#pic-4" data-toggle="tab">
-            <img src="https://freepngimg.com/save/26252-black-shoe-image/475x267" />
-           </a>
-          </div>
-          <div className="li">
-           <a data-target="#pic-5" data-toggle="tab">
-            <img src="https://freepngimg.com/save/26252-black-shoe-image/475x267" />
-           </a>
-          </div>
-         </div>
-        </div>
+        
        </div>
        <div className="details col-md-6">
-        <h3 className="product-title">{product.data.Name}</h3>
+        <h3 className="product-title">{productDetail?.Name}</h3>
 
-        <div className="product-description"> {product.data.Description}</div>
+        <div className="product-description"> {productDetail?.Description}</div>
         <h4 className="price">
-         Price: ${product.data.Price}<div className="d-inline"></div>
+         Price: ${productDetail?.Price}<div className="d-inline"></div>
         </h4>
 
-
+        <div>
+        <select value={selectedOption} onChange={handleOptionChange}>
+          <option value="">Select an option</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        </div>
+      <br />
         <div className="action">
-         <button className="add-to-cart btn btn-primary" type="button">
+        <button className="add-to-cart btn btn-primary" type="button" onClick={()=>addToCart()}>
           add to cart
          </button>
          <button className="like btn btn-default" type="button">

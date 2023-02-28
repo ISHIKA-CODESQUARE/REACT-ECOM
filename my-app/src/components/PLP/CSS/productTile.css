@@ -1,4 +1,4 @@
- body {
+  body {
     padding-top: 2rem;
 }
 
@@ -7,16 +7,16 @@
         overflow-x: auto;
         flex-wrap: nowrap;
     }
-}
+} 
 
 /* saloni kale commented */
 
  /* .card-img-top{   
     width: 100px;
     height: 300px;
-}
+} */
 
-.tiles{
+/* .tiles{
     width: 72%;
     height: 30%;
     float: right;

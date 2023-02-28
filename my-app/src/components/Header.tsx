@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { faShoppingCart  } from  '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header: React.FC = () => {
+  const [count,setCount] = useState(0);
+  const basket = localStorage.getItem('basket');
+  console.log(basket);
+  
+  var myBasket = JSON.parse(basket);
+  useEffect(()=>{
+    setCount(myBasket?.length);
+    // window.location.reload()
+  },[count])
+ 
+
+
   return (
     <>
       <div className="wrapper_header">
@@ -28,10 +42,10 @@ const Header: React.FC = () => {
                   Home
                 </Link>
             <NavDropdown title="Catalog" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/ProductListPage/mans">
+              <NavDropdown.Item as={Link} to="/ProductListPage/mens">
                 Mens
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/ProductListPage/women">
+              <NavDropdown.Item as={Link} to="/ProductListPage/womens">
                 Womens
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/ProductListPage/kids">
@@ -47,6 +61,11 @@ const Header: React.FC = () => {
                 <Link className="nav-link" to={"/login"}>
                   Login
                 </Link>
+
+                <Link className="nav-link" to={"/cart"}>
+                <FontAwesomeIcon icon={faShoppingCart} /><sup>{count}</sup>
+                </Link>
+                
               </div>
             </div>
           </nav>
