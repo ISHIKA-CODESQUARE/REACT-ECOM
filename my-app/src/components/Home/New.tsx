@@ -8,7 +8,7 @@ import '../Home/CSS/new.css'
 
 function New() {
     return (
-        <div><h4 className='mb-2 mt-5 '>NEW COLLECTION</h4>
+        <div className='text-center'><h4 className='mb-2 mt-5'>NEW COLLECTION</h4>
             <h1 className='mb-1 mt-1 text-dark'>Best Picks 2023</h1>
             <p className='mb-5 mt-2 '>Appear, dry there darkness they're seas, dry waters thing fly midst. Beast, above fly brought Very green.</p>
             {/* <div className="row banner1">
