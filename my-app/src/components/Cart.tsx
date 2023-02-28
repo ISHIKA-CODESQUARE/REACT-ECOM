@@ -9,43 +9,51 @@ import { Link } from "react-router-dom";
 import "../css/cart.css";
 const Cart = () => {
   const storedData = localStorage.getItem('basket');
-  const [totalPrice,setTotalPrice] = useState(null);
+  const [success, setSuccess] = useState(false)
+  const [totalPrice, setTotalPrice] = useState(null);
   const [productData, setProductData] = useState(JSON.parse(storedData));
- 
+
   // useEffect(() => {
-    
+
   //   if (storedData) {
   //     setProductData(JSON.parse(storedData));
   //   }
   // }, []);
 
   // console.log(productData,'newData')
-useEffect(()=>{
-  if(productData){
-    var total_price : any = 0;
-    console.log(productData);
-    productData.forEach((items)=>{
-      total_price = total_price + (items.price*items.qty);
-      setTotalPrice(total_price);
-    })
-  }
-},[])
- 
-  if(totalPrice){
+
+  useEffect(() => {
+    if (storedData != null) {
+      setSuccess(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (productData) {
+      var total_price: any = 0;
+      console.log(productData);
+      productData.forEach((items) => {
+        total_price = total_price + (items.price * items.qty);
+        setTotalPrice(total_price);
+      })
+    }
+  }, [])
+
+  if (totalPrice) {
     console.log(totalPrice)
   }
 
-  function checkout(){
-  
+  function checkout() {
+
     fetch('https://ecommbackend-yvqe.onrender.com/api/checkout', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ data: storedData })
-  })
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ data: storedData })
+    })
   }
- 
+
 
   // if (productData) {
   //    var total_price = 0
@@ -58,11 +66,11 @@ useEffect(()=>{
   // if(totalPrice){
   //   console.log(totalPrice)
   // }
-  
+
 
   return (
     <>
-      <div className="container">
+      {success ? <div className="container">
         {/* Heading */}
         <h2 className='font-weight-bold pb-4 pt-4'>Shopping Cart</h2>
         <div className="row">
@@ -82,21 +90,22 @@ useEffect(()=>{
                 </div>
               </div>
             </div>
+          </div>
           <div className="col-4 ">
             <div className="row border backgroundSet ">
               <div className="col-6 arrangeRight">
                 Subtotal
               </div>
               <div className="col-6 arrangeLeft">
-                <FontAwesomeIcon icon={faInr} />{totalPrice} 
+                <FontAwesomeIcon icon={faInr} />{totalPrice}
               </div>
             </div>
             <div className="row border backgroundSet">
               <div className="col-6 arrangeRight">
-                Tax 
+                Tax
               </div>
               <div className="col-6 arrangeLeft">
-              <FontAwesomeIcon icon={faInr} />0 
+                <FontAwesomeIcon icon={faInr} />0
               </div>
             </div>
             <div className="row border backgroundSet">
@@ -104,19 +113,17 @@ useEffect(()=>{
                 Total
               </div>
               <div className="col-6 arrangeLeft">
-              <FontAwesomeIcon icon={faInr} />{totalPrice}
+                <FontAwesomeIcon icon={faInr} />{totalPrice}
               </div>
             </div>
 
             <div className="row">
-              <button className="btn btn-primary buttonWidth" onClick={()=>checkout()}> <Link to={"/checkout"}>
+              <button className="btn btn-primary buttonWidth" onClick={() => checkout()}> <Link to={"/checkout"}>
                 Checkout
-                </Link></button>
+              </Link></button>
             </div>
           </div>
-          
         </div>
-          </div>
 
 
 
@@ -124,7 +131,13 @@ useEffect(()=>{
 
 
 
-      </div>
+      </div> :
+        <div className="container">
+          <h1>Hi! Your Cart is Empty.</h1>
+          <h3>Please buy something and come back again</h3>
+        </div>
+      }
+
     </>
   )
 }

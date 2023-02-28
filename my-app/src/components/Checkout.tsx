@@ -20,6 +20,8 @@ const CheckoutForm: React.FC = () => {
     cvv: "",
   });
 
+  const [success,setSuccess] = useState(false);
+
   const [cartProducts, setCartProducts]= useState(localStorage.getItem('basket') ||"null")
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -117,6 +119,10 @@ console.log(cartProducts,"cartProducts")
       'Authorization': `${token}`
     }
   });
+  localStorage.removeItem('basket');
+  setSuccess(true);
+
+  
   }else {
     alert("Somthing is missing check all the required fileds")
   }
@@ -254,9 +260,12 @@ console.log(cartProducts,"cartProducts")
       <option value={item?._id}>{item?.name} {`(₹ ${item?.price})`}</option>
       ))}
     </select> 
-    <button type="button" className="btn btn-primary form-control mt-4" onClick={(e)=>handleOrder(e)}> <Link to={"/thankyou"}>
+    <button type="button" className="btn btn-primary form-control mt-4" onClick={(e)=>handleOrder(e)}>
+      {success ?(<Link to={"/thankyou"}>
                   Order Confirm
-                </Link></button>
+                </Link>): "Order Confirm"}
+                  
+                </button>
     </div>
     </div>
     </div>

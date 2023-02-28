@@ -8,14 +8,16 @@ const Header: React.FC = () => {
   const [count,setCount] = useState(0);
   const basket = localStorage.getItem('basket');
   console.log(basket);
+
+  // if(basket != null){
+  //   setSuccess(true)
+  // }
   
   var myBasket = JSON.parse(basket);
   useEffect(()=>{
     setCount(myBasket?.length);
     // window.location.reload()
   },[count])
- 
-
 
   return (
     <>
@@ -65,6 +67,7 @@ const Header: React.FC = () => {
                 <Link className="nav-link" to={"/cart"}>
                 <FontAwesomeIcon icon={faShoppingCart} /><sup>{count}</sup>
                 </Link>
+             
                 
               </div>
             </div>
