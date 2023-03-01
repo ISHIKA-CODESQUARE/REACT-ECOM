@@ -3,8 +3,9 @@ import { useHistory, Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+  const base = process.env.REACT_APP_BASE_URL;
 const Header: React.FC = () => {
+
   const [count, setCount] = useState(0);
   const basket = localStorage.getItem("basket");
   var myBasket = JSON.parse(basket);
@@ -35,7 +36,7 @@ const Header: React.FC = () => {
             <nav className="navbar navbar-expand-lg">
               <div className="col-6">
                 <Link className="nav-link" to={"/"}>
-                  <img src="./logo1.jpg" />
+                  <img alt="" src="/logo1.jpg" />
                 </Link>
                 <button
                   className="navbar-toggler"
