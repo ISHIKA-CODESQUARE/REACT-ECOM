@@ -42,7 +42,7 @@ import { Link } from 'react-router-dom';
 function Shoppers(props: any) {
 
   const productdata = props.productData?.data;
-  console.log(productdata);
+  // console.log(productdata);
 
   return (
 

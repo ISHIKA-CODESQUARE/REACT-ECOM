@@ -38,13 +38,15 @@ const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
       .then(function (response) {
           setTimeout(() => {
             setisloading(false)
-            localStorage.setItem("auth", response.data.token);
+            const temp = JSON.stringify(response.data.token);
+            localStorage.setItem("auth", temp );
             history.push("/");
           }, 3000);
       })
 
       .catch(function (error) {
         console.log(error)
+        setisloading(false)
           toast.error(error.response.data.msg, {
             position: "top-right",
             autoClose: 3000,
