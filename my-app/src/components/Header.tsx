@@ -3,15 +3,16 @@ import { useHistory, Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+  const base = process.env.REACT_APP_BASE_URL;
 const Header: React.FC = () => {
+
   const [count, setCount] = useState(0);
   const basket = localStorage.getItem("basket");
   var myBasket = JSON.parse(basket);
   useEffect(() => {
     setCount(myBasket?.length);
     // window.location.reload()
-  }, [count]);
+  },[myBasket])
 
 
   
