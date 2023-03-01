@@ -27,6 +27,32 @@
 .App-link {
   color: #61dafb;
 }
+a.nav-link {
+  padding: 10px 16px !important;
+}
+
+div button.buttons {
+  border: none;
+  background: none;
+  padding-top: 10px;
+}
+
+.abc a {
+  display: inline;
+  vertical-align: -webkit-baseline-middle;
+  line-height: 43px;
+}
+
+.topSeller div {
+  
+    height: 230px;
+
+}
+
+.topImage  {
+  height: 200px !important;
+  display: block;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { useState, FC } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -8,13 +8,19 @@ import { RouteComponentProps } from "react-router";
 import { type } from "os";
 
 
+
 type SomeComponentProps = RouteComponentProps;
 type formValues = {
     email:string,
-    password:string
+    password:string,
 }
+
+
 const base = process.env.REACT_APP_BASE_URL
+
+
 const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
+  const [isloading , setisloading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -26,11 +32,13 @@ const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
       email: data.email,
       password: data.password,
     };
+    setisloading(true)
     axios
       .post(`${base}/login`, params)
       .then(function (response) {
-          localStorage.setItem("auth", response.data.token);
           setTimeout(() => {
+            setisloading(false)
+            localStorage.setItem("auth", response.data.token);
             history.push("/");
           }, 3000);
       })
@@ -97,10 +105,10 @@ const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
                   <div className="text-center mt-4 ">
                     <button
                       className="btn btn-outline-primary text-center shadow-none mb-3"
-                      type="submit"
-                    >
-                      Submit
-                    </button>
+                      type="submit">
+          Submit
+                    </button>{isloading ?
+                    <img src = "./Spinner.svg"/>:""}
                     <p className="card-text pb-2">
                       Have an Account?{" "}
                       <Link style={{ textDecoration: "none" }} to={"/register"}>

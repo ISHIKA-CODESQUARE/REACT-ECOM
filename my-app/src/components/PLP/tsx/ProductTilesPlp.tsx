@@ -46,6 +46,35 @@ console.log(props,"ggg")
     const productdata = props.productData;
     console.log(productdata,"HHHH");
 
+    function addToCart(productID,price,image,name){
+      var myBasket:any = JSON.parse(localStorage.getItem('basket')as any)? JSON.parse(localStorage.getItem('basket')as any):[];
+      if(myBasket[0] != null){
+       
+            if(myBasket.find(myBasketid => myBasketid.pid === productID)){  // one line whole iteration bcoz we won't need multiple iteration bcoz we have else loop as well which will run.
+                                                                            // console.log(myBasket[i].qty, 'old quantity')
+              var index = myBasket.findIndex(myBasketid => myBasketid.pid === productID);
+              if(index !== -1){
+              if(myBasket[index].pid === productID){
+                myBasket[index].qty = myBasket[index].qty + 1;
+              }
+                // console.log(myBasket[i].qty,"updated quantity")
+                localStorage.setItem('basket', JSON.stringify(myBasket) as any);
+            }
+          }
+            else{
+              myBasket?.push({pid:productID, price:price, qty:1,image:image,name:name})
+              localStorage.setItem('basket',JSON.stringify(myBasket) as any);
+          }
+        // localStorage.setItem('basket',JSON.stringify(basket) as any)
+      }
+      else{
+        myBasket?.push({pid:productID, price:price, qty:1,image:image,name:name})
+        localStorage.setItem('basket',JSON.stringify(myBasket) as any);
+      }
+      window.location.reload();
+    }
+
+
     return (
         <div className="tiles row">
              <h1 className='mb-5'>Womens' Clothing</h1>
@@ -54,7 +83,7 @@ console.log(props,"ggg")
             return (
               <Card style={{ width: '18rem' }}>
                 <Link className="nav-link" to={`/productdetail/${product?._id}`}>
-              <Card.Img variant="top" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" />
+              <Card.Img variant="top" src={`https://ecommbackend-yvqe.onrender.com/${product?.Image}`} />
             </Link>
               
               <Card.Body>
@@ -62,7 +91,7 @@ console.log(props,"ggg")
                 <Card.Text>
                 {product?.Description}
                 </Card.Text>
-                <Button variant="primary">Add to Cart</Button>
+                <Button variant="primary"onClick={()=> addToCart(product?._id,product?.Price,product?.Image,product?.Name)} >Add to Cart</Button>
               </Card.Body>
             </Card>
 
@@ -70,8 +99,8 @@ console.log(props,"ggg")
         })}
       </div>
     )
-
-  // console.log(productdata);
+    // onClick={()=> addToCart(product?._id,product?.Price,product?.Image,product?.Name)}>
+  console.log(productdata);
 
   return (
     <div className="container">

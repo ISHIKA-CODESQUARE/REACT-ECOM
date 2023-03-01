@@ -1,0 +1,54 @@
+.banner1{
+   background-image: url(https://images.pexels.com/photos/1805412/pexels-photo-1805412.jpeg?auto=compress&cs=tinysrgb&w=600);
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 20rem;
+   padding: 2rem;
+   margin-left:2rem;
+   color: white;
+   margin-top:2rem;
+}
+.banner2{
+   background-image: url(https://images.pexels.com/photos/167686/pexels-photo-167686.jpeg?auto=compress&cs=tinysrgb&w=600);
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 20rem;
+   padding: 2rem;
+   margin-left:2rem;
+   color: white;
+
+margin-top:2rem;
+}
+.banner3{
+   background-image: url(../images/dress.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 20rem;
+   padding: 2rem;
+   margin-left:2rem;
+
+margin-top:2rem;
+}
+.banner4{
+   background-image: url(../images/sweatshirt.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 20rem;
+   margin-left:2rem;
+   margin-top:2rem;
+      
+}
+
+/* .bottom{
+   margin-top: 2rem;
+} */
+.top{
+   margin-bottom: 1rem;
+   justify-content: center;
+}
+/* .top a{
+   color:black;
+} */
+/* .bottom a{
+   color:black;
+} */
