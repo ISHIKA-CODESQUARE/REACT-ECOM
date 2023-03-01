@@ -21,7 +21,7 @@ const CheckoutForm: React.FC = () => {
   });
 
   const [success,setSuccess] = useState(false);
-
+  const [selectedShippingPrice, setSelectedShippingPrice] = useState(0)
   const [cartProducts, setCartProducts]= useState(localStorage.getItem('basket') ||"null")
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -224,7 +224,7 @@ console.log(cartProducts,"cartProducts")
     </div>
     <div className="col-5">
         <h3 className="text-center">Order Summary</h3>
-            <div className="row border backgroundSet ">
+            <div className="row border">
               <div className="col-6 arrangeRight">
               Total price of Items
               </div>
@@ -234,7 +234,7 @@ console.log(cartProducts,"cartProducts")
                  {responseData1?.ItemsPrice}
               </div>
             </div>
-            <div className="row border backgroundSet">
+            <div className="row border ">
               <div className="col-6 arrangeRight">
                 Tax 
               </div>
@@ -243,13 +243,24 @@ console.log(cartProducts,"cartProducts")
               {responseData1?.tax}
               </div>
             </div>
-            <div className="row border backgroundSet">
+            {shippingMethod ?
+            <div className="row border ">
+              <div className="col-6 arrangeRight">
+                Shipping Price
+              </div>
+              <div className="col-6 arrangeLeft">
+              {/* <FontAwesomeIcon icon={faInr} />0  */}
+              {shippingMethod?.price}
+              </div>
+            </div>:<></>}
+            <div className="row border">
               <div className="col-6 arrangeRight">
                 Total
               </div>
               <div className="col-6 arrangeLeft">
               {/* <FontAwesomeIcon icon={faInr} />{totalPrice} */}
-              {responseData1.totalprice}
+              {shippingMethod ?
+              responseData1.totalprice+shippingMethod?.price : responseData1.totalprice}
               </div>
             </div>
 

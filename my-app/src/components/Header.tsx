@@ -35,7 +35,7 @@ const Header: React.FC = () => {
             <nav className="navbar navbar-expand-lg">
               <div className="col-6">
                 <Link className="nav-link" to={"/"}>
-                  <img src="./logo1.jpg" />
+                  <img src="/logo1.jpg" />
                 </Link>
                 <button
                   className="navbar-toggler"
