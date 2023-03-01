@@ -92,31 +92,31 @@ const Cart = () => {
             </div>
           </div>
           <div className="col-4 ">
-            <div className="row border backgroundSet ">
+            {/* <div className="row border">
               <div className="col-6 arrangeRight">
                 Subtotal
               </div>
               <div className="col-6 arrangeLeft">
                 <FontAwesomeIcon icon={faInr} />{totalPrice}
               </div>
-            </div>
-            <div className="row border backgroundSet">
+            </div> */}
+            {/* <div className="row border">
               <div className="col-6 arrangeRight">
                 Tax
               </div>
               <div className="col-6 arrangeLeft">
                 <FontAwesomeIcon icon={faInr} />0
               </div>
-            </div>
-            <div className="row border backgroundSet">
+            </div> */}
+            <div className="row border">
               <div className="col-6 arrangeRight">
-                Total
+                Total Amount 
               </div>
               <div className="col-6 arrangeLeft">
                 <FontAwesomeIcon icon={faInr} />{totalPrice}
               </div>
             </div>
-
+            <br />
             <div className="row">
               <button className="btn btn-primary buttonWidth" onClick={() => checkout()}> <Link to={"/checkout"}>
                 Checkout

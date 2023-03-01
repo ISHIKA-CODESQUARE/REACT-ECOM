@@ -12,12 +12,14 @@
 .arrangeRight{
     margin-top:5%;
     font-size: large;
+    padding-bottom: 4%;
 }
 
 .arrangeLeft{
     text-align: left;
     margin-top: 5%;
     font-size: large;
+    padding-bottom: 4%;
 }
 
 .buttonWidth{

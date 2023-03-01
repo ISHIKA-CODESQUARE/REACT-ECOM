@@ -95,7 +95,7 @@ console.log(props,"ggg")
               </Card.Body>
             </Card>
 
-            )
+            );
         })}
       </div>
     )
