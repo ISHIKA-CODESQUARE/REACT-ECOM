@@ -1,11 +1,12 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { RouteComponentProps } from "react-router";
-import { type } from "os";
+import { Usercontext } from "../App";
+
 
 
 
@@ -20,6 +21,7 @@ const base = process.env.REACT_APP_BASE_URL
 
 
 const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
+  const {state, dispatch} = useContext(Usercontext);
   const [isloading , setisloading] = useState(false);
   const {
     register,
@@ -40,6 +42,7 @@ const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
             setisloading(false)
             const temp = JSON.stringify(response.data.token);
             localStorage.setItem("auth", temp );
+            dispatch({type:"USER", payload:true})
             history.push("/");
           }, 3000);
       })
