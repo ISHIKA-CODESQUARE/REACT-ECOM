@@ -1,5 +1,5 @@
-import React,{ useEffect, useState } from 'react'
-import {useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { useParams } from "react-router-dom";
 import ProductTiles from './ProductTilesPlp'
 import SideBar from './SideBarPlp'
 import Discount from './DiscountPlp'
@@ -13,42 +13,69 @@ function ProductListPage() {
 
 
   const params = useParams<RouteParams>();
- 
-const catid = params.catid;
-console.log(catid, "aamir")
 
-    const [productData, setProductData] = useState([]);
-    // https://1e18-2401-4900-1c18-7e2a-1d35-f1dc-7d75-32d4.in.ngrok.io/api/productByCgid/mans
-    
-    let API: string = `https://ecommbackend-yvqe.onrender.com/api/productByCgid/${catid}`;
-console.log(productData,"jjjjj")
+  const catid = params.catid;
 
-    const fetchApiData = async (API: string) => {
-        try{
-            const res = await fetch(API);
-            const data = await res.json();
-            console.log(data,'myData')
-            setProductData(data);
+  const [productData, setProductData] = useState([]);
+  const [productDataPermanent, setProductDataPermanent] = useState([]);
+  const [sizeArr, setSizeArr] = useState([]);
+  const [priceArr, setPriceArr] = useState([])
+  // https://1e18-2401-4900-1c18-7e2a-1d35-f1dc-7d75-32d4.in.ngrok.io/api/productByCgid/mans
 
-        }
-        catch(error){
-            console.log(error);
-        }
+  let API: string = `https://ecommbackend-yvqe.onrender.com/api/productByCgid/${catid}`;
+
+  const fetchApiData = async (API: string) => {
+    try {
+      const res = await fetch(API);
+      const data = await res.json();
+      var tempArr: any = []
+      data?.map((item) => {
+        tempArr.push(item?.Size);
+      })
+      let uniqueChars = tempArr.filter((c, index) => {
+        return tempArr.indexOf(c) === index;
+      });
+      setSizeArr(uniqueChars)
+
+
+
+
+      var tempPrice: any = []
+      data?.map((item) => {
+        console.log(item, "item")
+        tempPrice.push(item?.Price);
+      })
+      let uniquePrice = tempPrice.filter((c, index) => {
+        return tempPrice.indexOf(c) === index;
+      });
+      console.log(uniquePrice, "price");
+
+
+       setPriceArr(uniquePrice)
+
+       setProductData(data);
+      setProductDataPermanent(data);
+
     }
-    useEffect(()=>{
-        fetchApiData(API);
-    },[catid]);
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-4"><Discount/><SideBar /></div>
-          <div className="col-sm-8"><Banner/></div>
-        </div>
-        <div className="row">
-        <ProductTiles productData={productData}/>
-        </div>
-      </div>
-    )
-}
+    catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    fetchApiData(API);
+  }, [catid]);
 
-export default ProductListPage
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-4"><Discount /><SideBar productDataPermanent={productDataPermanent} setProductData={setProductData} sizeArr={sizeArr} uniquePrice={priceArr} /></div>
+        <div className="col-sm-8"><Banner /></div>
+      </div>
+      <div className="row">
+        <ProductTiles productData={productData} />
+      </div>
+    </div>
+  )
+
+}
+export default ProductListPage;

@@ -42,9 +42,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 
 function ProductTiles(props :any) {
-console.log(props,"ggg")
     const productdata = props.productData;
-    console.log(productdata,"HHHH");
 
     function addToCart(productID,price,image,name){
       var myBasket:any = JSON.parse(localStorage.getItem('basket')as any)? JSON.parse(localStorage.getItem('basket')as any):[];
@@ -88,6 +86,7 @@ console.log(props,"ggg")
               
               <Card.Body>
                 <Card.Title>{product?.Name}</Card.Title>
+                <Card.Title>$ {product?.Price}</Card.Title>
                 <Card.Text>
                 {product?.Description}
                 </Card.Text>

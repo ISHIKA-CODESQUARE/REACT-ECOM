@@ -9,7 +9,6 @@ function TopSeller(props: any) {
 
   const productdata = props.productData?.data;
 
-  // console.log("ss", productdata);
 
   return (
 
