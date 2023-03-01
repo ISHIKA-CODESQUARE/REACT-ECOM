@@ -1,5 +1,5 @@
 import React,{ useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 interface FormValues {
   name: string;
@@ -121,7 +121,6 @@ console.log(cartProducts,"cartProducts")
   });
   localStorage.removeItem('basket');
   setSuccess(true);
-
   
   }else {
     alert("Somthing is missing check all the required fileds")

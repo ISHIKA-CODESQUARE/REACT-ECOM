@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   useEffect(()=>{
     setCount(myBasket?.length);
     // window.location.reload()
-  },[count])
+  },[myBasket])
 
   return (
     <>
