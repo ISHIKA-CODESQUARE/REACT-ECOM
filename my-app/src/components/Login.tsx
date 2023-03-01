@@ -36,15 +36,17 @@ const Login: FC<SomeComponentProps> = ({ history }): JSX.Element => {
     axios
       .post(`${base}/login`, params)
       .then(function (response) {
-          localStorage.setItem("auth", response.data.token);
           setTimeout(() => {
             setisloading(false)
+            const temp = JSON.stringify(response.data.token);
+            localStorage.setItem("auth", temp );
             history.push("/");
           }, 3000);
       })
 
       .catch(function (error) {
         console.log(error)
+        setisloading(false)
           toast.error(error.response.data.msg, {
             position: "top-right",
             autoClose: 3000,

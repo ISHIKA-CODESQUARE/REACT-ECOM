@@ -30,9 +30,9 @@ const SignUp: FC<SomeComponentProps> = ({ history }) => {
     };
     //console.log(data);
     axios
-      .post(`http://192.168.1.210:4000/api/register`, params)
+      .post(`${base}/register`, params)
       .then(function (response) {
-        console.log(response)
+        console.log(response);
         toast.success(response.data.msg, {
           position: "top-right",
           autoClose: 3000,
@@ -51,15 +51,15 @@ const SignUp: FC<SomeComponentProps> = ({ history }) => {
 
       .catch(function (error) {
         toast.error(error.response.data.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: 0,
-            toastId: "my_toast",
-          });
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
       });
   };
   return (
