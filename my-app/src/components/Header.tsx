@@ -19,21 +19,14 @@ const Header: React.FC = () => {
   const history = useHistory();
   const logout = () => {
     localStorage.removeItem("auth");
-    setauth("")
+   
     history.push("/login");
 
   };
-  console.log(history.location.pathname, "history")
   
-  const [auth, setauth] = useState<any>("")
   
-  useEffect(() => {
-    // storing input name
-    const auth = localStorage.getItem("auth");
-    setauth(auth)
-  }, [history]);
-
-console.log(auth,"auth")
+  const auth = localStorage.getItem("auth");
+  console.log(auth,"auth")
   return (
     <>
       <div className="wrapper_header">
