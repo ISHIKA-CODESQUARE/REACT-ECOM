@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-  const base = process.env.REACT_APP_BASE_URL;
+import { Usercontext } from "../App";
+const base = process.env.REACT_APP_BASE_URL;
 const Header: React.FC = () => {
 
   const [count, setCount] = useState(0);
@@ -14,20 +15,14 @@ const Header: React.FC = () => {
     // window.location.reload()
   },[myBasket])
 
-
-  
   // console.log(auth.length,"auth")
   const history = useHistory();
   const logout = () => {
-    localStorage.removeItem("auth");
-   
+    dispatch({ type: "USER", payload: false });
     history.push("/login");
 
   };
-  
-  
-  const auth = localStorage.getItem("auth");
-  console.log(auth,"auth")
+  const { state, dispatch } = useContext(Usercontext);
   return (
     <>
       <div className="wrapper_header">
@@ -73,15 +68,15 @@ const Header: React.FC = () => {
                     <Link className="nav-link" to={"/shop"}>
                       Shop
                     </Link>
-                    
-
-                    {!auth ? (
-                      <div className= "abc"><Link className="nav-link" to={"/register"}>
-                      Register
-                    </Link>
-                      <Link className="nav-link" to={"/login"}>
-                        Login
-                      </Link></div>
+                    {!state ? (
+                      <div className="abc">
+                        <Link className="nav-link" to={"/register"}>
+                          Register
+                        </Link>
+                        <Link className="nav-link" to={"/login"}>
+                          Login
+                        </Link>
+                      </div>
                     ) : (
                       <div>
                         <button

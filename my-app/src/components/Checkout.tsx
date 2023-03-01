@@ -23,7 +23,7 @@ const CheckoutForm: React.FC = () => {
   const [success,setSuccess] = useState(false);
   const [selectedShippingPrice, setSelectedShippingPrice] = useState(0)
   const [cartProducts, setCartProducts]= useState(localStorage.getItem('basket') ||"null")
-
+console.log(cartProducts,"show")
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // console.log(formValues);
