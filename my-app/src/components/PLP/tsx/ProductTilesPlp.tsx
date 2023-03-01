@@ -66,11 +66,12 @@ console.log(props,"ggg")
               </Card.Body>
             </Card>
 
-            )
+            );
         })}
       </div>
+    )
 
-  console.log(productdata);
+  // console.log(productdata);
 
   return (
     <div className="container">
