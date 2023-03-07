@@ -75,7 +75,7 @@ function ProductListPage() {
       {catid === "mens" ? <Mens_Banner/> : null}
       {catid === "kids" ? <Kids_Banner /> : null}
       </Row>
-      <Row>
+      <Row className='mt-5'>
         <Col lg={4}>
           <SideBar productDataPermanent={productDataPermanent} setProductData={setProductData} sizeArr={sizeArr} uniquePrice={priceArr} />
         </Col>
