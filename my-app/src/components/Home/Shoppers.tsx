@@ -61,7 +61,7 @@ function Shoppers(props: any) {
                 <div>
                   <Link className="nav-link" to={`/productdetail/${product?._id}`}>
 
-                    <img src={`https://ecommbackend-yvqe.onrender.com/${product?.Image}`} className="h-75 w-75" alt="..." /> </Link>
+                    <img src={`https://ecommbackend-yvqe.onrender.com/${product?.Image}`} className="h-75 w-75 imageSet"  alt="..." /> </Link>
                 </div>
                 <h5 className="card-title">{product?.Name}</h5>
                 <p className="card-text">{product?.Description}</p>
