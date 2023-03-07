@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 
-import { faInr } from '@fortawesome/free-solid-svg-icons';
+import { faUsd } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CartProducts from './CartProduct';
 import { Link , useHistory } from "react-router-dom";
@@ -32,18 +32,21 @@ const Cart = () => {
     if(storedData == "[]"){
       setSuccess(false)
     }
-
+    
     if (productData) {
       var total_price: any = 0;
       console.log(productData);
       productData.forEach((items) => {
         total_price = total_price + (items.price * items.qty);
         setTotalPrice(total_price);
-        setUpdateState(!updateState);
       })
     }
+    else{
+      var total_price:any  = 0;
+      setTotalPrice(total_price)
+    }
 
-  },[success])
+  },[productData])
 
   if (totalPrice) {
     console.log(totalPrice)
@@ -123,7 +126,7 @@ const Cart = () => {
                 Total Amount
               </div>
               <div className="col-6 arrangeLeft">
-                <FontAwesomeIcon icon={faInr} />{totalPrice}
+                <FontAwesomeIcon icon={faUsd} />{totalPrice}
               </div>
             </div>
             <br />
