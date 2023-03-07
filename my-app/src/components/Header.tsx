@@ -69,7 +69,7 @@ const Header: React.FC = () => {
                   className="collapse navbar-collapse"
                   id="navbarNavAltMarkup"
                 >
-                  <div className="navbar-nav" style={{marginLeft: "9rem"}}>
+                  <div className="navbar-nav" style={{marginLeft: "11rem"}}>
                     <Link className="nav-link" to={"/"}>
                       Home
                     </Link>
@@ -84,9 +84,6 @@ const Header: React.FC = () => {
                         Kids
                       </NavDropdown.Item>
                     </NavDropdown>
-                    <Link className="nav-link" to={"/shop"}>
-                      Shop
-                    </Link>
                     {!state ? (
                       <div className="abc">
                         <Link className="nav-link" to={"/register"}>
