@@ -31,7 +31,7 @@ function TopSeller(props: any) {
                 </div>
                 <h5 className="card-title">{product?.Name}</h5>
                 <p className="card-text">{product?.Description}</p>
-                {/* <p className="card-text"><small className="text-muted">Price = {product?.Price}</small></p> */}
+                <p className="card-text"><small className="text-muted">Price = {product?.Price}</small></p>
 
               </Col>:""
 
