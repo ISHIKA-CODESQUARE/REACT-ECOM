@@ -5,7 +5,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import discount50 from '../images/discount50.jpg'
 import '../CSS/Banner.css'
 
-function Banner() {
+function Womens_Banner() {
     return (
         <>
             <div className='banner mt-5'>
@@ -38,4 +38,4 @@ function Banner() {
     )
 }
 
-export default Banner
+export default Womens_Banner;
