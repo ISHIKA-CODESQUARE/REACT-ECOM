@@ -6,7 +6,10 @@ import './PLP/CSS/Footer.css';
 
 function Footer() {
     return (
-<div className='border border-dark bg-dark'>
+      <>
+      <div className='border  border-0'>
+    </div>
+<div className='border border-dark bg-dark mt-5'>
         <Stack gap={5}>
             <div>
             <h3  className="text-center text-light mt-5">Want Style Ideas and Treats?</h3>
@@ -83,6 +86,7 @@ function Footer() {
             </div>
         </Stack>
 </div>
+</>
     )
 }
 
