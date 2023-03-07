@@ -26,6 +26,9 @@ const Cart = () => {
     if (storedData != null) {
       setSuccess(true)
     }
+    if(storedData == "[]"){
+      setSuccess(false)
+    }
   }, [])
 
   useEffect(() => {
@@ -110,7 +113,7 @@ const Cart = () => {
             </div> */}
             <div className="row border">
               <div className="col-6 arrangeRight">
-                Total Amount 
+                Total Amount
               </div>
               <div className="col-6 arrangeLeft">
                 <FontAwesomeIcon icon={faInr} />{totalPrice}
