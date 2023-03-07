@@ -39,14 +39,14 @@ function New() {
                     <Col lg={4} className='banner1 border p-3 d-flex justify-content-center flex-column align-items-start'>
                         <h4>Bags Collection</h4>
                         <Stack direction='horizontal' className='d-flex justify-content-start' gap={2}>
-                            <a href='/ProductListPage/womens' className='text-dark'> Shop Now </a>
+                            <a href='/ProductListPage/womens' className='text-white'> Shop Now </a>
                             <BsArrowRight/>
                         </Stack>
                     </Col>
                     <Col lg={7} className='banner2 d-flex align-items-end justify-content-center p-5 flex-column'>
                         <h4>Men's Shirts</h4>
                         <Stack direction='horizontal' className='d-flex justify-content-end ' gap={2}>
-                            <a href='/ProductListPage/mens' className='text-dark'> Shop Now </a>
+                            <a href='/ProductListPage/mens' className='text-white'> Shop Now </a>
                             <BsArrowRight/>
                         </Stack>
                     </Col>
