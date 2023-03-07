@@ -1,7 +1,7 @@
 import "../css/cartProduct.css";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react'
-import { faInr, faPlus, faMinus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faInr, faPlus, faMinus, faTrash, faUsd } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CartProduct = ({productData}) => {
@@ -14,8 +14,9 @@ const CartProduct = ({productData}) => {
       myArray.splice(indexToDelete, 1);
       localStorage.setItem("basket", JSON.stringify(myArray));
       setCartItems(myArray);
+      window.location.reload()
     }
-    window.location.reload()
+    
   }
 
   return (
@@ -43,7 +44,7 @@ const CartProduct = ({productData}) => {
                             <Link to="ProductDetailPage/:id" className="productName-font--weight">{name}</Link>
                           </div>
                           <div className="col-6 productName-font--weight---price ">
-                            <FontAwesomeIcon icon={faInr} />{price}
+                            <FontAwesomeIcon icon={faUsd} />{price}
                           </div>
                         </div>
                         <div className="row button-alignment">
