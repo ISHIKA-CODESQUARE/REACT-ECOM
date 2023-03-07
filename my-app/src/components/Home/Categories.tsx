@@ -9,7 +9,7 @@ import './CSS/Categories.css'
 function Categories() {
     return(
         <>
-    <Row className='cat '>
+    <Row className='cat ' style={{marginLeft: "0.2rem"}}>
         <Col lg={4}>
             <div className='women text-center'>
                 <h1> Women</h1>

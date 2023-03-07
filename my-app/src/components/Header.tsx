@@ -69,7 +69,7 @@ const Header: React.FC = () => {
                   className="collapse navbar-collapse"
                   id="navbarNavAltMarkup"
                 >
-                  <div className="navbar-nav" style={{marginLeft: "11rem"}}>
+                  <div className="navbar-nav" style={{marginLeft: "9rem"}}>
                     <Link className="nav-link" to={"/"}>
                       Home
                     </Link>
