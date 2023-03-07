@@ -4,14 +4,15 @@ import React, { useEffect, useState } from 'react'
 import { faInr } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CartProducts from './CartProduct';
-import { Link } from "react-router-dom";
+import { Link , useHistory } from "react-router-dom";
 
 import "../css/cart.css";
 const Cart = () => {
+  
+  const [updateState, setUpdateState] = useState(false);
   const storedData = localStorage.getItem('basket');
   const [success, setSuccess] = useState(false)
   const [totalPrice, setTotalPrice] = useState(null);
-  const [updateState, setUpdateState] = useState(false);
   const [productData, setProductData] = useState(JSON.parse(storedData));
 
   // useEffect(() => {
@@ -33,6 +34,7 @@ const Cart = () => {
   }, [])
 
   useEffect(() => {
+    
     if (productData) {
       var total_price: any = 0;
       console.log(productData);
@@ -43,12 +45,14 @@ const Cart = () => {
       })
     }
 
-  }, [storedData])
+  }, [])
 
   if (totalPrice) {
     console.log(totalPrice)
   }
 
+  const history = useHistory();
+  
   function checkout() {
 
     fetch('https://ecommbackend-yvqe.onrender.com/api/checkout', {
@@ -58,7 +62,8 @@ const Cart = () => {
       },
       body: JSON.stringify({ data: storedData })
     })
-    
+    history.push('/checkout');
+
   }
 
 
