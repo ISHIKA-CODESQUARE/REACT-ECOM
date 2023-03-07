@@ -4,6 +4,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Usercontext } from "../App";
+import logo from './DSnew.jpg';
 const base = process.env.REACT_APP_BASE_URL;
 const Header: React.FC = () => {
 
@@ -49,7 +50,7 @@ const Header: React.FC = () => {
             <nav className="navbar navbar-expand-lg">
               <div className="col-6">
                 <Link className="nav-link" to={"/"}>
-                  <img src="../DS.svg" />
+                  <img style={{width:"132px"}} src={logo}/>
                 </Link>
                 <button
                   className="navbar-toggler"
