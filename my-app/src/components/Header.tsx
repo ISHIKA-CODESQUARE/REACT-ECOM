@@ -22,6 +22,8 @@ const Header: React.FC = () => {
   // console.log(auth.length,"auth")
   const history = useHistory();
   const logout = () => {
+    localStorage.clear()
+    
     dispatch({ type: "USER", payload: false });
     history.push("/login");
 

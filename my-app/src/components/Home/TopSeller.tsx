@@ -13,7 +13,7 @@ function TopSeller(props: any) {
   return (
 
     <div className="tiles row card-group mt-5">
-      <h1 className='mb-5 text-dark text-center'>Top month Sellers</h1>
+      <h1 className='mb-5 text-dark text-center'>New Arrivals</h1>
 
       <Row>
 
@@ -23,7 +23,7 @@ function TopSeller(props: any) {
 
             return (
               index > 8  && index < 17 ?
-              <Col className = "topSeller" lg={3}>
+              <Col lg={3}>
                 <div>
                   <Link className="nav-link" to={`/productdetail/${product?._id}`}>
 
@@ -31,7 +31,7 @@ function TopSeller(props: any) {
                 </div>
                 <h5 className="card-title">{product?.Name}</h5>
                 <p className="card-text">{product?.Description}</p>
-                <p className="card-text"><small className="text-muted">Price = {product?.Price}</small></p>
+                {/* <p className="card-text"><small className="text-muted">Price = {product?.Price}</small></p> */}
 
               </Col>:""
 
