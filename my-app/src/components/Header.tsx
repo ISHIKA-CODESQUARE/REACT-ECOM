@@ -23,6 +23,21 @@ const Header: React.FC = () => {
 
   };
   const { state, dispatch } = useContext(Usercontext);
+
+  const style = {
+    backgroundColor: 'red',
+    marginLeft: "1rem",
+    height: "1rem",
+    borderRadius: "5rem",
+    fontSize: "small",
+    display: "block",
+    width: "1rem",
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "white",
+    marginTop: "-1.6rem",
+  }
+
   return (
     <>
       <div className="wrapper_header">
@@ -91,7 +106,18 @@ const Header: React.FC = () => {
 
                     <Link className="nav-link" to={"/cart"}>
                       <FontAwesomeIcon icon={faShoppingCart} />
-                      <sup>{count}</sup>
+                      <span style={{   backgroundColor: 'red',
+                          marginLeft: "1rem",
+                          height: "1rem",
+                          borderRadius: "5rem",
+                          fontSize: "small",
+                          display: "block",
+                          width: "1rem",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "white",
+                          marginTop: "-1.6rem",}}>{count}
+                      </span>
                     </Link>
                   </div>
                 </div>
