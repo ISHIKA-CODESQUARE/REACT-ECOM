@@ -30,6 +30,7 @@ function ProductDetailPage() {
     const [basket, setBasket] = useState<[Object]>([{}]);
     const [products,setProducts] = useState();
     const [selectedOption, setSelectedOption] = useState<any>(1);
+    const [updateState, setUpdateState] = useState(false);
 
     const handleOptionChange = (event:any) => {
       setSelectedOption(event.target.value);
@@ -105,7 +106,8 @@ function ProductDetailPage() {
         myBasket?.push({pid:productDetail._id, price:productDetail.Price, qty:parseFloat(selectedOption), image:productDetail.Image,name:productDetail.Name})
         localStorage.setItem('basket',JSON.stringify(myBasket) as any);
       }
-      window.location.reload()
+      // window.location.reload()
+      setUpdateState(!updateState);
     }
     console.log(productDetail)
     

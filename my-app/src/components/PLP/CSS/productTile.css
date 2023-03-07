@@ -1,5 +1,6 @@
   body {
     padding-top: 2rem;
+    overflow-x: hidden;
 }
 
 @media (min-width: 576px) {

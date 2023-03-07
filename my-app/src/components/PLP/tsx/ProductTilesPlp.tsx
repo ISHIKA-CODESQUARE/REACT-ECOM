@@ -3,11 +3,13 @@ import '../CSS/productTile.css'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 
 
 function ProductTiles(props :any) {
     const productdata = props.productData;
+    const [updateState, setUpdateState] = useState(false);
 
     function addToCart(productID,price,image,name){
       var myBasket:any = JSON.parse(localStorage.getItem('basket')as any)? JSON.parse(localStorage.getItem('basket')as any):[];
@@ -34,7 +36,7 @@ function ProductTiles(props :any) {
         myBasket?.push({pid:productID, price:price, qty:1,image:image,name:name})
         localStorage.setItem('basket',JSON.stringify(myBasket) as any);
       }
-      window.location.reload();
+      setUpdateState(!updateState);
     }
 
 
