@@ -49,7 +49,7 @@ const Header: React.FC = () => {
             <nav className="navbar navbar-expand-lg">
               <div className="col-6">
                 <Link className="nav-link" to={"/"}>
-                  <img src="/logo1.jpg" />
+                  <img src="../DS.svg" />
                 </Link>
                 <button
                   className="navbar-toggler"
@@ -68,7 +68,7 @@ const Header: React.FC = () => {
                   className="collapse navbar-collapse"
                   id="navbarNavAltMarkup"
                 >
-                  <div className="navbar-nav" style={{marginLeft: "15rem"}}>
+                  <div className="navbar-nav" style={{marginLeft: "11rem"}}>
                     <Link className="nav-link" to={"/"}>
                       Home
                     </Link>

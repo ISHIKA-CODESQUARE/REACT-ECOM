@@ -4,7 +4,9 @@ import { useParams } from "react-router-dom";
 import ProductTiles from './ProductTilesPlp'
 import SideBar from './SideBarPlp'
 import Discount from './DiscountPlp'
-import Banner from './Banner_PLP'
+import Mens_Banner from './Mens_Banner_PLP'
+import Womens_Banner from './Womens_Banner_PLP';
+import Kids_Banner from './Kids_Banner_PLP';
 
 function ProductListPage() {
 
@@ -69,9 +71,11 @@ function ProductListPage() {
   return (
     <Container>
       <Row>
-        <Banner />
+      {catid === "womens" ? <Womens_Banner /> : null}
+      {catid === "mens" ? <Mens_Banner/> : null}
+      {catid === "kids" ? <Kids_Banner /> : null}
       </Row>
-      <Row>
+      <Row className='mt-5'>
         <Col lg={4}>
           <SideBar productDataPermanent={productDataPermanent} setProductData={setProductData} sizeArr={sizeArr} uniquePrice={priceArr} />
         </Col>

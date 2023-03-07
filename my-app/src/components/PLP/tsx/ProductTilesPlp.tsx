@@ -42,9 +42,6 @@ function ProductTiles(props :any) {
 
     return (
         <>
-        <Row className="text-center mt-5">
-        <h1 className='mb-5 text-dark'>Women's Clothing</h1>
-        </Row>
         <Row className="tiles">
         {productdata?.map((product:any)=>{
             return (
