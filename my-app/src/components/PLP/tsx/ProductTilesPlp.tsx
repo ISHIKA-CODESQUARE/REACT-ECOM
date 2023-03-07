@@ -105,9 +105,6 @@ function ProductTiles(props :any) {
     <div className="container">
 
       <h1 className='mb-5'>Womens' Clothing</h1>
-
-      
-
       {productdata?.map((product: any) => {
         return (
 
@@ -135,7 +132,7 @@ function ProductTiles(props :any) {
                 <div className="card-body row-3">
                   <h5 className="card-title">{product?.Name}</h5>
                   <p className="card-text">{product?.Description}</p>
-                  <p className="card-text"><small className="text-muted">Price = {product?.Price}</small></p>
+                  <p className="card-text"><small className="text-muted">$ {product?.Price}</small></p>
                 </div>
               </div>
             </div>
@@ -145,7 +142,7 @@ function ProductTiles(props :any) {
                 <div className="card-body row-3">
                   <h5 className="card-title">{product?.Name}</h5>
                   <p className="card-text">{product?.Description}</p>
-                  <p className="card-text"><small className="text-muted">Price = {product?.Price}</small></p>
+                  <p className="card-text"><small className="text-muted">$ {product?.Price}</small></p>
                 </div>
               </div>
             </div>
@@ -155,7 +152,7 @@ function ProductTiles(props :any) {
                 <div className="card-body row-3">
                   <h5 className="card-title">{product?.Name}</h5>
                   <p className="card-text">{product?.Description}</p>
-                  <p className="card-text"><small className="text-muted">Price = {product?.Price}</small></p>
+                  <p className="card-text"><small className="text-muted">$ {product?.Price}</small></p>
                 </div>
               </div>
             </div>
