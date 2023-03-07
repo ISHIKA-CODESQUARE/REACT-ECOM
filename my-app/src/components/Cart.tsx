@@ -139,7 +139,7 @@ const Cart = () => {
 
       </div> :
         <div className="container">
-          <h1>Hi! Your Cart is Empty.</h1>
+          <h1 style={{color:"black"}}>Hi! Your Cart is Empty.</h1>
           <h3>Please buy something and come back again</h3>
         </div>
       }
