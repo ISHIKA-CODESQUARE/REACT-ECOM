@@ -14,7 +14,7 @@ function TopSeller(props: any) {
   return (
 <>
     <div className="tiles row card-group mt-5">
-      <h1 className='mb-5 text-dark text-center'>Top month Sellers</h1>
+      <h1 className='mb-2 text-dark text-center'>New Arrivals</h1>
     </div>
       <Container className='ml-5'>
       <Row >
