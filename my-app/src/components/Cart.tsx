@@ -11,6 +11,7 @@ const Cart = () => {
   const storedData = localStorage.getItem('basket');
   const [success, setSuccess] = useState(false)
   const [totalPrice, setTotalPrice] = useState(null);
+  const [updateState, setUpdateState] = useState(false);
   const [productData, setProductData] = useState(JSON.parse(storedData));
 
   // useEffect(() => {
@@ -26,6 +27,9 @@ const Cart = () => {
     if (storedData != null) {
       setSuccess(true)
     }
+    if(storedData == "[]"){
+      setSuccess(false)
+    }
   }, [])
 
   useEffect(() => {
@@ -35,9 +39,11 @@ const Cart = () => {
       productData.forEach((items) => {
         total_price = total_price + (items.price * items.qty);
         setTotalPrice(total_price);
+        setUpdateState(!updateState);
       })
     }
-  }, [])
+    
+  }, [storedData])
 
   if (totalPrice) {
     console.log(totalPrice)
@@ -110,7 +116,7 @@ const Cart = () => {
             </div> */}
             <div className="row border">
               <div className="col-6 arrangeRight">
-                Total Amount 
+                Total Amount
               </div>
               <div className="col-6 arrangeLeft">
                 <FontAwesomeIcon icon={faInr} />{totalPrice}

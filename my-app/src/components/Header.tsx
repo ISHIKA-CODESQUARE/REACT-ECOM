@@ -8,11 +8,14 @@ const base = process.env.REACT_APP_BASE_URL;
 const Header: React.FC = () => {
 
   const [count, setCount] = useState(0);
+  const [updateState, setUpdateState] = useState(false);
   const basket = localStorage.getItem("basket");
   var myBasket = JSON.parse(basket);
   useEffect(() => {
     setCount(myBasket?.length);
     // window.location.reload()
+    setUpdateState(!updateState);
+
   },[myBasket])
 
   // console.log(auth.length,"auth")
@@ -23,6 +26,21 @@ const Header: React.FC = () => {
 
   };
   const { state, dispatch } = useContext(Usercontext);
+
+  const style = {
+    backgroundColor: 'red',
+    marginLeft: "1rem",
+    height: "1rem",
+    borderRadius: "5rem",
+    fontSize: "small",
+    display: "block",
+    width: "1rem",
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "white",
+    marginTop: "-1.6rem",
+  }
+
   return (
     <>
       <div className="wrapper_header">
@@ -50,7 +68,7 @@ const Header: React.FC = () => {
                   className="collapse navbar-collapse"
                   id="navbarNavAltMarkup"
                 >
-                  <div className="navbar-nav">
+                  <div className="navbar-nav" style={{marginLeft: "15rem"}}>
                     <Link className="nav-link" to={"/"}>
                       Home
                     </Link>
@@ -91,7 +109,18 @@ const Header: React.FC = () => {
 
                     <Link className="nav-link" to={"/cart"}>
                       <FontAwesomeIcon icon={faShoppingCart} />
-                      <sup>{count}</sup>
+                      <span style={{   backgroundColor: 'red',
+                          marginLeft: "1.2rem",
+                          height: "1.2rem",
+                          borderRadius: "5rem",
+                          fontSize: "small",
+                          display: "block",
+                          width: "1.2rem",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "white",
+                          marginTop: "-1.6rem",}}>{count}
+                      </span>
                     </Link>
                   </div>
                 </div>
