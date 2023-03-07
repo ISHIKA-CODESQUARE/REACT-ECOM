@@ -42,7 +42,7 @@ const Cart = () => {
         setUpdateState(!updateState);
       })
     }
-    
+
   }, [storedData])
 
   if (totalPrice) {
@@ -58,6 +58,7 @@ const Cart = () => {
       },
       body: JSON.stringify({ data: storedData })
     })
+    
   }
 
 
@@ -124,9 +125,7 @@ const Cart = () => {
             </div>
             <br />
             <div className="row">
-              <button className="btn btn-primary buttonWidth" onClick={() => checkout()}> <Link to={"/checkout"}>
-                Checkout
-              </Link></button>
+              <button className="btn btn-primary buttonWidth" onClick={() => checkout()}> Checkout </button>
             </div>
           </div>
         </div>
