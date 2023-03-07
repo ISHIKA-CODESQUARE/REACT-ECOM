@@ -11,6 +11,7 @@ interface FormValues {
 }
 
 const CheckoutForm: React.FC = () => {
+  const history = useHistory();
   const [formValues, setFormValues] = useState<FormValues>({
     name: "",
     pincode:0,
@@ -120,7 +121,12 @@ console.log(cartProducts,"cartProducts")
     }
   });
   localStorage.removeItem('basket');
-  setSuccess(true);
+  if(!success){
+    setSuccess(true);
+    history.push('/thankyou');
+  }
+  console.log(success, "aamir")
+  
   
   }else {
     alert("Somthing is missing check all the required fileds")
@@ -270,10 +276,10 @@ console.log(cartProducts,"cartProducts")
       <option value={item?._id}>{item?.name} {`(₹ ${item?.price})`}</option>
       ))}
     </select> 
-    <button type="button" className="btn btn-primary form-control mt-4" onClick={(e)=>handleOrder(e)}>
-      {success ?(<Link to={"/thankyou"}>
+    <button type="button" className="btn btn-primary form-control mt-4" onClick={(e)=>handleOrder(e)}> Order Confirm
+      {/* {success ?(<Link to={"/thankyou"}>
                   Order Confirm
-                </Link>): "Order Confirm"}
+                </Link>): "Order Confirm"} */}
                   
                 </button>
     </div>
