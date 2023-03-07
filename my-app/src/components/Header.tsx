@@ -107,12 +107,12 @@ const Header: React.FC = () => {
                     <Link className="nav-link" to={"/cart"}>
                       <FontAwesomeIcon icon={faShoppingCart} />
                       <span style={{   backgroundColor: 'red',
-                          marginLeft: "1rem",
-                          height: "1rem",
+                          marginLeft: "1.2rem",
+                          height: "1.2rem",
                           borderRadius: "5rem",
                           fontSize: "small",
                           display: "block",
-                          width: "1rem",
+                          width: "1.2rem",
                           textAlign: "center",
                           fontWeight: "bold",
                           color: "white",
