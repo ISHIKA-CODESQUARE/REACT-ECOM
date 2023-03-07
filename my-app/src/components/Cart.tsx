@@ -4,10 +4,12 @@ import React, { useEffect, useState } from 'react'
 import { faInr } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CartProducts from './CartProduct';
-import { Link } from "react-router-dom";
+import { Link , useHistory } from "react-router-dom";
 
 import "../css/cart.css";
 const Cart = () => {
+  
+  const [updateState, setUpdateState] = useState(false);
   const storedData = localStorage.getItem('basket');
   const [success, setSuccess] = useState(false)
   const [totalPrice, setTotalPrice] = useState(null);
@@ -26,23 +28,31 @@ const Cart = () => {
     if (storedData != null) {
       setSuccess(true)
     }
+    if(storedData == "[]"){
+      setSuccess(false)
+    }
   }, [])
 
   useEffect(() => {
+    
     if (productData) {
       var total_price: any = 0;
       console.log(productData);
       productData.forEach((items) => {
         total_price = total_price + (items.price * items.qty);
         setTotalPrice(total_price);
+        setUpdateState(!updateState);
       })
     }
+
   }, [])
 
   if (totalPrice) {
     console.log(totalPrice)
   }
 
+  const history = useHistory();
+  
   function checkout() {
 
     fetch('https://ecommbackend-yvqe.onrender.com/api/checkout', {
@@ -52,6 +62,8 @@ const Cart = () => {
       },
       body: JSON.stringify({ data: storedData })
     })
+    history.push('/checkout');
+
   }
 
 
@@ -110,7 +122,7 @@ const Cart = () => {
             </div> */}
             <div className="row border">
               <div className="col-6 arrangeRight">
-                Total Amount 
+                Total Amount
               </div>
               <div className="col-6 arrangeLeft">
                 <FontAwesomeIcon icon={faInr} />{totalPrice}
@@ -118,9 +130,7 @@ const Cart = () => {
             </div>
             <br />
             <div className="row">
-              <button className="btn btn-primary buttonWidth" onClick={() => checkout()}> <Link to={"/checkout"}>
-                Checkout
-              </Link></button>
+              <button className="btn btn-primary buttonWidth" onClick={() => checkout()}> Checkout </button>
             </div>
           </div>
         </div>

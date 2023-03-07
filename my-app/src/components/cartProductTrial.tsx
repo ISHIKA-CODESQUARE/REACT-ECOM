@@ -1,28 +1,48 @@
+
 import "../css/cartProduct.css";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react'
 import { faInr, faPlus, faMinus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CartProduct = ({productData}) => {
-  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("basket")) || []);
-  const [updateState, setUpdateState] = useState(false);
+const CartProduct = ({ productData }) => {
+
 
   function removeItem(pid){
-    let myArray = [...cartItems];
-    let indexToDelete = myArray.findIndex(obj => obj.pid === pid);
-    if (indexToDelete !== -1) {
-      myArray.splice(indexToDelete, 1);
-      localStorage.setItem("basket", JSON.stringify(myArray));
-      setCartItems(myArray);
-      setUpdateState(!updateState);
-    }
+    let myArray = JSON.parse(localStorage.getItem("basket"));
+      let indexToDelete = myArray.findIndex(obj => obj.pid === pid);
+      if (indexToDelete !== -1) {
+        myArray.splice(indexToDelete, 1);
+        localStorage.setItem("basket", JSON.stringify(myArray));
+      }
+      window.location.reload()
   }
+  // const [newData, setNewData] = useState();
+  // const addToCart = () => {
+  //   var myBasket:any = JSON.parse(localStorage.getItem('basket')as any)? JSON.parse(localStorage.getItem('basket')as any):[];
+  //   // console.log(myBasket,"mybasket")
+  //   if(myBasket[0] != null){
+  //     for(var i = 0 ; i< myBasket.length; i ++ ){
+  //       if(myBasket.find(myBasketid => myBasketid.pid === productData.pid)){
+  //         // console.log(myBasket[i].qty, 'old quantity')
+  //         if(myBasket[i].pid === productData.pid){
+  //           myBasket[i].qty = myBasket[i].qty + 1;
+  //           setNewData(myBasket[i].qty);
+  //       }
+  //         // console.log(myBasket[i].qty,"updated quantity")
+  //         localStorage.setItem('basket', JSON.stringify(myBasket) as any);
+  //       }
+  //     }
+      
+  //     // localStorage.setItem('basket',JSON.stringify(basket) as any)
+  //   }
+  // }
+
 
   return (
     <>
       <section>
-        {cartItems.map((prodData) => {
+        {productData.map((prodData) => {
           const { pid, price, qty, image, name } = prodData;
           return (
             <>
@@ -47,6 +67,13 @@ const CartProduct = ({productData}) => {
                             <FontAwesomeIcon icon={faInr} />{price}
                           </div>
                         </div>
+                        {/* <div className="row mt-3">
+                          <div className="col-12 text-align-attributes">
+                          <span>Size</span>
+                          <br />
+                          <span>Color</span>
+                          </div>
+                        </div> */}
                         <div className="row button-alignment">
                           <div className="col-6 ">
                             <div>
