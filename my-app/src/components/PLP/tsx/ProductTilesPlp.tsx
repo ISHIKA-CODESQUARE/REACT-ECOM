@@ -105,9 +105,6 @@ function ProductTiles(props :any) {
     <div className="container">
 
       <h1 className='mb-5'>Womens' Clothing</h1>
-
-      
-
       {productdata?.map((product: any) => {
         return (
 
