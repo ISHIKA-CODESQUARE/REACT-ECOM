@@ -24,6 +24,7 @@ const Cart = () => {
 
   // console.log(productData,'newData')
 
+
   useEffect(() => {
     if (storedData != null) {
       setSuccess(true)
@@ -31,10 +32,7 @@ const Cart = () => {
     if(storedData == "[]"){
       setSuccess(false)
     }
-  }, [])
 
-  useEffect(() => {
-    
     if (productData) {
       var total_price: any = 0;
       console.log(productData);
@@ -45,13 +43,13 @@ const Cart = () => {
       })
     }
 
-  }, [])
+  },[success])
 
   if (totalPrice) {
     console.log(totalPrice)
   }
 
-  const history = useHistory();
+  const history = useHistory()
   
   function checkout() {
 

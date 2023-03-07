@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CartProduct = ({productData}) => {
   const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("basket")) || []);
-  const [updateState, setUpdateState] = useState(false);
 
   function removeItem(pid){
     let myArray = [...cartItems];
@@ -15,8 +14,8 @@ const CartProduct = ({productData}) => {
       myArray.splice(indexToDelete, 1);
       localStorage.setItem("basket", JSON.stringify(myArray));
       setCartItems(myArray);
-      setUpdateState(!updateState);
     }
+    window.location.reload()
   }
 
   return (
