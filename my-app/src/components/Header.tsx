@@ -8,11 +8,14 @@ const base = process.env.REACT_APP_BASE_URL;
 const Header: React.FC = () => {
 
   const [count, setCount] = useState(0);
+  const [updateState, setUpdateState] = useState(false);
   const basket = localStorage.getItem("basket");
   var myBasket = JSON.parse(basket);
   useEffect(() => {
     setCount(myBasket?.length);
     // window.location.reload()
+    setUpdateState(!updateState);
+
   },[myBasket])
 
   // console.log(auth.length,"auth")
