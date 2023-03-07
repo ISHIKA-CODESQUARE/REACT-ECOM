@@ -11,6 +11,7 @@ const Cart = () => {
   const storedData = localStorage.getItem('basket');
   const [success, setSuccess] = useState(false)
   const [totalPrice, setTotalPrice] = useState(null);
+  const [updateState, setUpdateState] = useState(false);
   const [productData, setProductData] = useState(JSON.parse(storedData));
 
   // useEffect(() => {
@@ -38,9 +39,11 @@ const Cart = () => {
       productData.forEach((items) => {
         total_price = total_price + (items.price * items.qty);
         setTotalPrice(total_price);
+        setUpdateState(!updateState);
       })
     }
-  }, [])
+    
+  }, [storedData])
 
   if (totalPrice) {
     console.log(totalPrice)
