@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router-dom";
 import ProductTiles from './ProductTilesPlp'
 import SideBar from './SideBarPlp'
@@ -66,15 +67,19 @@ function ProductListPage() {
   }, [catid]);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-sm-4"><Discount /><SideBar productDataPermanent={productDataPermanent} setProductData={setProductData} sizeArr={sizeArr} uniquePrice={priceArr} /></div>
-        <div className="col-sm-8"><Banner /></div>
-      </div>
-      <div className="row">
-        <ProductTiles productData={productData} />
-      </div>
-    </div>
+    <Container>
+      <Row>
+        <Banner />
+      </Row>
+      <Row>
+        <Col lg={4}>
+          <SideBar productDataPermanent={productDataPermanent} setProductData={setProductData} sizeArr={sizeArr} uniquePrice={priceArr} />
+        </Col>
+        <Col lg={8}>
+          <ProductTiles productData={productData} />
+        </Col>
+      </Row>
+    </Container>
   )
 
 }
