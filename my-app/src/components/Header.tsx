@@ -119,7 +119,7 @@ const Header: React.FC = () => {
                           textAlign: "center",
                           fontWeight: "bold",
                           color: "white",
-                          marginTop: "-1.6rem",}}>{count}
+                          marginTop: "-1.6rem",}}>{count?count:'0'}
                       </span>
                     </Link>
                   </div>
